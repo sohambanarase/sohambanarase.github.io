@@ -26,9 +26,6 @@
           },
           colors: {
             ink: "#05070d",
-            panel: "rgba(12, 15, 25, 0.72)",
-            panelStrong: "rgba(18, 23, 38, 0.92)",
-            line: "rgba(255,255,255,0.12)",
             soft: "#aeb8d4",
             text: "#eef3ff",
             blue: "#7db7ff",
@@ -61,7 +58,7 @@
   </div>
 
   <!-- Navigation -->
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-40 border-b border-white/10 bg-ink/55 backdrop-blur-2xl">
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-40 border-b border-white/10 bg-ink/60 backdrop-blur-2xl">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
       <a href="#home" class="group flex items-center gap-3">
         <span class="grid h-10 w-10 place-items-center rounded-2xl border border-white/15 bg-white/5 text-sm font-black text-cyan shadow-[0_0_30px_rgba(102,246,255,0.15)]">
@@ -81,7 +78,7 @@
         <a class="nav-link" href="#contact">Contact</a>
       </div>
 
-      <button id="mobile-menu-btn" class="grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-white/5 md:hidden">
+      <button id="mobile-menu-btn" class="grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-white/5 md:hidden" aria-label="Open menu">
         <span class="material-symbols-outlined">menu</span>
       </button>
     </div>
@@ -95,132 +92,109 @@
     </div>
   </nav>
 
-  <!-- Main -->
   <main>
 
     <!-- Hero -->
-<section id="home" class="relative flex min-h-screen items-center px-5 pt-28 md:px-8 overflow-hidden">
-  <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+    <section id="home" class="relative min-h-screen px-5 pt-28 md:px-8">
+      <div class="mx-auto grid min-h-[calc(100vh-7rem)] max-w-7xl items-center gap-14 py-12 lg:grid-cols-[1.02fr_0.98fr]">
 
-    <!-- Hero text -->
-    <div class="reveal relative z-10">
-      <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-soft backdrop-blur-xl">
-        <span class="relative flex h-2.5 w-2.5">
-          <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green opacity-70"></span>
-          <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-green"></span>
-        </span>
-        Building intelligent data products for real-world decisions
-      </div>
+        <!-- Hero Text -->
+        <div class="reveal relative z-10">
+          <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-soft backdrop-blur-xl">
+            <span class="relative flex h-2.5 w-2.5">
+              <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green opacity-70"></span>
+              <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-green"></span>
+            </span>
+            Building intelligent data products for real-world decisions
+          </div>
 
-      <h1 class="max-w-5xl text-5xl font-black tracking-[-0.06em] text-white sm:text-6xl md:text-7xl lg:text-8xl">
-        I turn complex data into
-        <span class="gradient-text">clear, useful systems.</span>
-      </h1>
+          <h1 class="max-w-5xl text-5xl font-black tracking-[-0.06em] text-white sm:text-6xl md:text-7xl lg:text-8xl">
+            I turn complex data into
+            <span class="gradient-text">clear, useful systems.</span>
+          </h1>
 
-      <p class="mt-7 max-w-2xl text-lg leading-8 text-soft md:text-xl">
-        I’m Soham Banarase — a Data Analyst in Internal Audit at DHL, with a background in Artificial Intelligence,
-        cloud-native software, and user-focused analytics products. I like building tools that make data easier to
-        understand, trust, and act on.
-      </p>
+          <p class="mt-7 max-w-2xl text-lg leading-8 text-soft md:text-xl">
+            I’m Soham Banarase — a Data Analyst in Internal Audit at DHL, with a background in Artificial Intelligence,
+            cloud-native software, and user-focused analytics products. I like building tools that make data easier to
+            understand, trust, and act on.
+          </p>
 
-      <div class="mt-9 flex flex-col gap-4 sm:flex-row">
-        <a href="#projects" class="magnetic-btn primary-btn">
-          View Featured Work
-          <span class="material-symbols-outlined text-[19px]">arrow_downward</span>
-        </a>
-        <a href="mailto:sohambanarase1999@gmail.com" class="magnetic-btn secondary-btn">
-          Let’s Connect
-          <span class="material-symbols-outlined text-[19px]">north_east</span>
-        </a>
-      </div>
+          <div class="mt-9 flex flex-col gap-4 sm:flex-row">
+            <a href="#projects" class="magnetic-btn primary-btn">
+              View Featured Work
+              <span class="material-symbols-outlined text-[19px]">arrow_downward</span>
+            </a>
+            <a href="mailto:sohambanarase1999@gmail.com" class="magnetic-btn secondary-btn">
+              Let’s Connect
+              <span class="material-symbols-outlined text-[19px]">north_east</span>
+            </a>
+          </div>
 
-      <div class="mt-10 grid max-w-2xl grid-cols-3 gap-3">
-        <div class="metric-card">
-          <span class="metric-value">AI</span>
-          <span class="metric-label">Modeling</span>
-        </div>
-        <div class="metric-card">
-          <span class="metric-value">Dash</span>
-          <span class="metric-label">Web Apps</span>
-        </div>
-        <div class="metric-card">
-          <span class="metric-value">Audit</span>
-          <span class="metric-label">Analytics</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Hero visual -->
-    <div class="hero-visual reveal reveal-delay-2 relative mx-auto h-[520px] w-full max-w-[560px] md:h-[620px]">
-
-      <!-- Decorative background rings -->
-      <div class="hero-visual-ring hero-visual-ring-one"></div>
-      <div class="hero-visual-ring hero-visual-ring-two"></div>
-
-      <!-- Chibi avatar layer -->
-      <div class="hero-avatar-wrap" aria-hidden="true">
-        <div class="hero-avatar-glow"></div>
-
-        <img
-          src="./me.png"
-          alt="Soham chibi avatar"
-          class="hero-avatar-img"
-        />
-      </div>
-
-      <div class="orbital-system hero-orbital-layer">
-        <div class="core-card tilt-card hero-core-card">
-          <div class="core-glow"></div>
-
-          <div class="relative z-10">
-            <p class="text-sm uppercase tracking-[0.3em] text-cyan">Portfolio Signal</p>
-
-            <h2 class="mt-5 text-4xl font-black tracking-[-0.04em] text-white">
-              Data Analyst
-            </h2>
-
-            <p class="mt-3 text-sm leading-6 text-soft">
-              AI, analytics, automation, and audit technology — designed with clarity and usability in mind.
-            </p>
-
-            <div class="mt-7 space-y-3">
-              <div class="signal-row">
-                <span>Insight Design</span>
-                <strong>94%</strong>
-              </div>
-              <div class="signal-bar">
-                <span style="width:94%"></span>
-              </div>
-
-              <div class="signal-row">
-                <span>Automation Thinking</span>
-                <strong>89%</strong>
-              </div>
-              <div class="signal-bar">
-                <span style="width:89%"></span>
-              </div>
-
-              <div class="signal-row">
-                <span>AI Product Mindset</span>
-                <strong>92%</strong>
-              </div>
-              <div class="signal-bar">
-                <span style="width:92%"></span>
-              </div>
+          <div class="mt-10 grid max-w-2xl grid-cols-3 gap-3">
+            <div class="metric-card">
+              <span class="metric-value">AI</span>
+              <span class="metric-label">Modeling</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-value">Dash</span>
+              <span class="metric-label">Web Apps</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-value">Audit</span>
+              <span class="metric-label">Analytics</span>
             </div>
           </div>
         </div>
 
-        <span class="orbit-pill orbit-one">Python</span>
-        <span class="orbit-pill orbit-two">KNIME</span>
-        <span class="orbit-pill orbit-three">LLMs</span>
-        <span class="orbit-pill orbit-four">Dash</span>
-        <span class="orbit-pill orbit-five">Cloud</span>
-      </div>
-    </div>
+        <!-- New blended hero visual -->
+        <div class="hero-stage reveal reveal-delay-2">
 
-  </div>
-</section>
+          <div class="hero-orbit hero-orbit-one"></div>
+          <div class="hero-orbit hero-orbit-two"></div>
+          <div class="hero-orbit hero-orbit-three"></div>
+
+          <div class="hero-aura"></div>
+
+          <div class="avatar-shell tilt-card">
+            <div class="avatar-platform-glow"></div>
+            <img src="./me.png" alt="Soham chibi avatar" class="hero-avatar" />
+          </div>
+
+          <div class="signal-card tilt-card">
+            <p class="signal-kicker">Portfolio Signal</p>
+            <h2>Data Analyst</h2>
+            <p>AI, analytics, automation, and audit technology — shaped into usable products.</p>
+
+            <div class="signal-list">
+              <div>
+                <span>Insight Design</span>
+                <strong>94%</strong>
+              </div>
+              <div class="signal-bar"><span style="width:94%"></span></div>
+
+              <div>
+                <span>Automation Thinking</span>
+                <strong>89%</strong>
+              </div>
+              <div class="signal-bar"><span style="width:89%"></span></div>
+
+              <div>
+                <span>AI Product Mindset</span>
+                <strong>92%</strong>
+              </div>
+              <div class="signal-bar"><span style="width:92%"></span></div>
+            </div>
+          </div>
+
+          <span class="hero-chip chip-python">Python</span>
+          <span class="hero-chip chip-knime">KNIME</span>
+          <span class="hero-chip chip-llm">LLMs</span>
+          <span class="hero-chip chip-dash">Dash</span>
+          <span class="hero-chip chip-cloud">Cloud</span>
+        </div>
+
+      </div>
+    </section>
 
     <!-- About -->
     <section id="about" class="section-shell">
@@ -248,16 +222,19 @@
             <h3>AI-first thinking</h3>
             <p>LLMs, classification, computer vision, and intelligent workflow design.</p>
           </div>
+
           <div class="feature-card reveal reveal-delay-2">
             <span class="material-symbols-outlined">analytics</span>
             <h3>Analytics that explain</h3>
             <p>Reports, dashboards, and patterns that help people understand what is happening.</p>
           </div>
+
           <div class="feature-card reveal reveal-delay-3">
             <span class="material-symbols-outlined">deployed_code</span>
             <h3>Builder mindset</h3>
             <p>Dash, React, backend services, automation pipelines, and product-style delivery.</p>
           </div>
+
           <div class="feature-card reveal reveal-delay-4">
             <span class="material-symbols-outlined">groups</span>
             <h3>User-centered delivery</h3>
@@ -377,9 +354,7 @@
           <div class="project-content">
             <p class="project-type">AI Research</p>
             <h3>Visio-Linguistic Analysis of Text-to-Image AI</h3>
-            <p>
-              Evaluation of multi-modal AI models, focusing on alignment between text prompts and generated image outputs.
-            </p>
+            <p>Evaluation of multi-modal AI models, focusing on alignment between text prompts and generated image outputs.</p>
             <div class="tag-row">
               <span>Python</span>
               <span>PyTorch</span>
@@ -395,9 +370,7 @@
           <div class="project-content">
             <p class="project-type">Robotics & Vision</p>
             <h3>AI-Based Navigation of Surgical Robot</h3>
-            <p>
-              Intelligent navigation approach using computer vision for robotic precision in simulated surgical environments.
-            </p>
+            <p>Intelligent navigation approach using computer vision for robotic precision in simulated surgical environments.</p>
             <div class="tag-row">
               <span>OpenCV</span>
               <span>ROS</span>
@@ -413,9 +386,7 @@
           <div class="project-content">
             <p class="project-type">Full-Stack App</p>
             <h3>Clinical Trials Web Application</h3>
-            <p>
-              Award-winning web application concept for securely managing clinical trial data with analytics and tracking.
-            </p>
+            <p>Award-winning web application concept for securely managing clinical trial data with analytics and tracking.</p>
             <div class="tag-row">
               <span>React</span>
               <span>Node.js</span>
@@ -476,7 +447,7 @@
       </div>
     </section>
 
-    <!-- Certifications -->
+    <!-- Credentials -->
     <section class="section-shell">
       <div class="section-heading reveal">
         <p class="eyebrow">Credentials</p>
