@@ -1,125 +1,6 @@
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;const prefersReducedMotion = window.match* Mobile menu */
-const mobileBtn = document.getElementById("mobile-menu-btn");
-const mobileMenu = document.getElementById("mobile-menu");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-mobileBtn?.addEventListener("click", () => {
-  mobileMenu.classList.toggle("hidden");
-});
-
-document.querySelectorAll("#mobile-menu a").forEach((link) => {
-  link.addEventListener("click", () => mobileMenu.classList.add("hidden"));
-});
-
-/* Cursor */
-const cursorDot = document.getElementById("cursor-dot");
-const cursorRing = document.getElementById("cursor-ring");
-
-let cursorX = 0;
-let cursorY = 0;
-let ringX = 0;
-let ringY = 0;
-
-if (!prefersReducedMotion && window.matchMedia("(min-width: 769px)").matches) {
-  window.addEventListener("mousemove", (event) => {
-    cursorX = event.clientX;
-    cursorY = event.clientY;
-
-    cursorDot.style.left = `${cursorX}px`;
-    cursorDot.style.top = `${cursorY}px`;
-  });
-
-  const animateCursor = () => {
-    ringX += (cursorX - ringX) * 0.17;
-    ringY += (cursorY - ringY) * 0.17;
-
-    cursorRing.style.left = `${ringX}px`;
-    cursorRing.style.top = `${ringY}px`;
-
-    requestAnimationFrame(animateCursor);
-  };
-
-  animateCursor();
-
-  document.querySelectorAll("a, button, .tilt-card").forEach((item) => {
-    item.addEventListener("mouseenter", () => document.body.classList.add("cursor-hover"));
-    item.addEventListener("mouseleave", () => document.body.classList.remove("cursor-hover"));
-  });
-}
-
-/* Scroll progress */
-const progress = document.getElementById("scroll-progress");
-
-function updateScrollProgress() {
-  const scrollTop = window.scrollY;
-  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const percentage = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-  progress.style.width = `${percentage}%`;
-}
-
-window.addEventListener("scroll", updateScrollProgress, { passive: true });
-updateScrollProgress();
-
-/* Reveal animation */
-const revealElements = document.querySelectorAll(".reveal");
-
-if (!prefersReducedMotion) {
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.14,
-      rootMargin: "0px 0px -80px 0px"
-    }
-  );
-
-  revealElements.forEach((element) => revealObserver.observe(element));
-} else {
-  revealElements.forEach((element) => element.classList.add("active"));
-}
-
-/* Active nav */
-const sections = document.querySelectorAll("section[id], footer[id]");
-const navLinks = document.querySelectorAll(".nav-link");
-
-const navObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-
-      navLinks.forEach((link) => link.classList.remove("active"));
-
-      const activeLink = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
-      activeLink?.classList.add("active");
-    });
-  },
-  {
-    threshold: 0.35
-  }
-);
-
-sections.forEach((section) => navObserver.observe(section));
-
-/* Magnetic buttons */
-document.querySelectorAll(".magnetic-btn").forEach((button) => {
-  button.addEventListener("mousemove", (event) => {
-    if (prefersReducedMotion) return;
-
-    const rect = button.getBoundingClientRect();
-    const x = event.clientX - rect.left - rect.width / 2;
-    const y = event.clientY - rect.top - rect.height / 2;
-
-    button.style.transform = `translate(${x * 0.13}px, ${y * 0.22}px)`;
-  });
-
-  button.addEventListener("mouseleave", () => {
-    button.style.transform = "";
-  });
+/  });/* Mobile menu */
 });
 
 /* 3D tilt cards */
@@ -265,4 +146,123 @@ window.addEventListener("mouseleave", () => {
 
 resizeCanvas();
 animateCanvas();
+const mobileBtn = document.getElementById("mobile-menu-btn");
+const mobileMenu = document.getElementById("mobile-menu");
 
+mobileBtn?.addEventListener("click", () => {
+  mobileMenu.classList.toggle("hidden");
+});
+
+document.querySelectorAll("#mobile-menu a").forEach((link) => {
+  link.addEventListener("click", () => mobileMenu.classList.add("hidden"));
+});
+
+/* Cursor */
+const cursorDot = document.getElementById("cursor-dot");
+const cursorRing = document.getElementById("cursor-ring");
+
+let cursorX = 0;
+let cursorY = 0;
+let ringX = 0;
+let ringY = 0;
+
+if (!prefersReducedMotion && window.matchMedia("(min-width: 769px)").matches) {
+  window.addEventListener("mousemove", (event) => {
+    cursorX = event.clientX;
+    cursorY = event.clientY;
+
+    cursorDot.style.left = `${cursorX}px`;
+    cursorDot.style.top = `${cursorY}px`;
+  });
+
+  const animateCursor = () => {
+    ringX += (cursorX - ringX) * 0.17;
+    ringY += (cursorY - ringY) * 0.17;
+
+    cursorRing.style.left = `${ringX}px`;
+    cursorRing.style.top = `${ringY}px`;
+
+    requestAnimationFrame(animateCursor);
+  };
+
+  animateCursor();
+
+  document.querySelectorAll("a, button, .tilt-card").forEach((item) => {
+    item.addEventListener("mouseenter", () => document.body.classList.add("cursor-hover"));
+    item.addEventListener("mouseleave", () => document.body.classList.remove("cursor-hover"));
+  });
+}
+
+/* Scroll progress */
+const progress = document.getElementById("scroll-progress");
+
+function updateScrollProgress() {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const percentage = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  progress.style.width = `${percentage}%`;
+}
+
+window.addEventListener("scroll", updateScrollProgress, { passive: true });
+updateScrollProgress();
+
+/* Reveal animation */
+const revealElements = document.querySelectorAll(".reveal");
+
+if (!prefersReducedMotion) {
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.14,
+      rootMargin: "0px 0px -80px 0px"
+    }
+  );
+
+  revealElements.forEach((element) => revealObserver.observe(element));
+} else {
+  revealElements.forEach((element) => element.classList.add("active"));
+}
+
+/* Active nav */
+const sections = document.querySelectorAll("section[id], footer[id]");
+const navLinks = document.querySelectorAll(".nav-link");
+
+const navObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      navLinks.forEach((link) => link.classList.remove("active"));
+
+      const activeLink = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+      activeLink?.classList.add("active");
+    });
+  },
+  {
+    threshold: 0.35
+  }
+);
+
+sections.forEach((section) => navObserver.observe(section));
+
+/* Magnetic buttons */
+document.querySelectorAll(".magnetic-btn").forEach((button) => {
+  button.addEventListener("mousemove", (event) => {
+    if (prefersReducedMotion) return;
+
+    const rect = button.getBoundingClientRect();
+    const x = event.clientX - rect.left - rect.width / 2;
+    const y = event.clientY - rect.top - rect.height / 2;
+
+    button.style.transform = `translate(${x * 0.13}px, ${y * 0.22}px)`;
+  });
+
+  button.addEventListener("mouseleave", () => {
+    button.style.transform = "";
