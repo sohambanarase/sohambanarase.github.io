@@ -133,8 +133,8 @@ document.querySelectorAll(".tilt-card").forEach((card) => {
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
 
-    const rotateX = ((y / rect.height) - 0.5) * -9;
-    const rotateY = ((x / rect.width) - 0.5) * 9;
+    const rotateX = ((y / rect.height) - 0.5) * -7;
+    const rotateY = ((x / rect.width) - 0.5) * 7;
 
     card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
   });
@@ -204,7 +204,7 @@ function drawParticles() {
     const dy = mouse.y === null ? 9999 : p.y - mouse.y;
     const distance = Math.sqrt(dx * dx + dy * dy);
 
-    if (distance < mouse.radius) {
+    if (distance < mouse.radius && distance > 0) {
       const force = (mouse.radius - distance) / mouse.radius;
       p.x += (dx / distance) * force * 2.2;
       p.y += (dy / distance) * force * 2.2;
