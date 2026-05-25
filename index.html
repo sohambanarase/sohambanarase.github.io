@@ -1,934 +1,529 @@
 <!DOCTYPE html>
-<html class="dark scroll-smooth" lang="en">
+<html lang="en" class="dark scroll-smooth">
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Soham Banarase | Data Analyst</title>
-    
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "secondary-container": "#46464b",
-                        "on-tertiary-container": "#282a2a",
-                        "surface-border": "#ffffff1a",
-                        "primary": "#adc6ff",
-                        "on-primary-container": "#00285c",
-                        "surface-container-highest": "#353534",
-                        "on-surface-variant": "#c1c6d7",
-                        "on-tertiary": "#2f3131",
-                        "surface-container-high": "#2a2a2a",
-                        "on-surface": "#e5e2e1",
-                        "primary-fixed-dim": "#adc6ff",
-                        "tertiary-fixed": "#e2e2e2",
-                        "on-tertiary-fixed": "#1a1c1c",
-                        "on-primary-fixed-variant": "#004493",
-                        "surface-container-lowest": "#0e0e0e",
-                        "error": "#ffb4ab",
-                        "background": "#131313",
-                        "on-error-container": "#ffdad6",
-                        "surface-dim": "#131313",
-                        "tertiary-fixed-dim": "#c6c6c7",
-                        "surface-bright": "#3a3939",
-                        "surface-container": "#201f1f",
-                        "secondary": "#c6c6cb",
-                        "secondary-fixed-dim": "#c6c6cb",
-                        "on-tertiary-fixed-variant": "#454747",
-                        "on-secondary-fixed-variant": "#46464b",
-                        "on-primary-fixed": "#001a41",
-                        "on-primary": "#002e69",
-                        "surface-tint": "#adc6ff",
-                        "on-background": "#e5e2e1",
-                        "primary-fixed": "#d8e2ff",
-                        "on-secondary": "#2f3034",
-                        "outline-variant": "#414755",
-                        "on-error": "#690005",
-                        "inverse-on-surface": "#313030",
-                        "surface-container-low": "#1c1b1b",
-                        "inverse-surface": "#e5e2e1",
-                        "outline": "#8b90a0",
-                        "tertiary-container": "#909191",
-                        "error-container": "#93000a",
-                        "secondary-fixed": "#e3e2e7",
-                        "on-secondary-container": "#b5b4ba",
-                        "surface-variant": "#353534",
-                        "primary-container": "#4b8eff",
-                        "background-pure": "#000000",
-                        "tertiary": "#c6c6c7",
-                        "inverse-primary": "#005bc1",
-                        "surface": "#131313",
-                        "electric-glow": "rgba(0, 122, 255, 0.15)",
-                        "on-secondary-fixed": "#1a1b1f"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "section-padding": "120px",
-                        "unit": "8px",
-                        "gutter": "24px",
-                        "margin-mobile": "20px",
-                        "container-max": "1200px"
-                    },
-                    "fontFamily": {
-                        "label-sm": ["Inter"],
-                        "headline-lg-mobile": ["Inter"],
-                        "headline-lg": ["Inter"],
-                        "label-md": ["Inter"],
-                        "headline-xl": ["Inter"],
-                        "headline-md": ["Inter"],
-                        "body-md": ["Inter"],
-                        "body-lg": ["Inter"]
-                    },
-                    "fontSize": {
-                        "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "600" }],
-                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "600" }],
-                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
-                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500" }],
-                        "headline-xl": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
-                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
-                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
-                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            background-color: theme('colors.background');
-            color: theme('colors.on-surface');
-            -webkit-font-smoothing: antialiased;
-            cursor: none; /* Hide default cursor for custom cursor */
-        }
-        
-        a, button, .cursor-pointer {
-            cursor: none; 
-        }
+  <title>Soham Banarase | Data Analyst & AI Builder</title>
+  <meta name="description" content="Portfolio of Soham Banarase — Data Analyst, AI Engineer, and builder of intelligent data products." />
 
-        /* Custom Cursor */
-        #cursor {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 20px;
-            height: 20px;
-            background-color: theme('colors.primary');
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            mix-blend-mode: difference;
-            transform: translate(-50%, -50%);
-            transition: width 0.2s ease, height 0.2s ease;
-        }
-        #cursor.hovered {
-            width: 50px;
-            height: 50px;
-            background-color: white;
-        }
-        
-        .glass-panel {
-            background: rgba(15, 15, 15, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid theme('colors.surface-border');
-        }
+  <script src="https://cdn.tailwindcss.com"></script>
 
-        .glow-effect {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .glow-effect:hover {
-            box-shadow: 0 0 30px theme('colors.electric-glow');
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-4px) scale(1.01);
-        }
-        
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: theme('colors.background'); 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: theme('colors.surface-variant'); 
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: theme('colors.outline'); 
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 
-        /* Animation Classes */
-        @media (prefers-reduced-motion: no-preference) {
-            .reveal {
-                opacity: 0;
-                transform: translateY(30px);
-                transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            }
+  <link rel="stylesheet" href="styles.css" />
 
-            .reveal.active {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            
-            .reveal-delay-1 { transition-delay: 0.1s; }
-            .reveal-delay-2 { transition-delay: 0.2s; }
-            .reveal-delay-3 { transition-delay: 0.3s; }
-            .reveal-delay-4 { transition-delay: 0.4s; }
-
-            .stagger-reveal span {
-                display: inline-block;
-                opacity: 0;
-                transform: translateY(20px);
-                animation: staggerUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-            }
-
-            @keyframes staggerUp {
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            @keyframes pulse {
-                0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(173,198,255,0.7); }
-                70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(173,198,255,0); }
-                100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(173,198,255,0); }
-            }
-
-            .timeline-point:hover {
-                animation: pulse 1.5s infinite;
-            }
-            
-            .shimmer-btn {
-                position: relative;
-                overflow: hidden;
-            }
-            
-            .shimmer-btn::after {
-                content: '';
-                position: absolute;
-                top: -50%;
-                left: -50%;
-                width: 200%;
-                height: 200%;
-                background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%);
-                transform: rotate(30deg) translateY(-100%);
-                transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-            
-            .shimmer-btn:hover::after {
-                transform: rotate(30deg) translateY(100%);
-            }
-            
-            .skill-tag {
-                transition: all 0.3s ease;
-            }
-            .skill-tag:hover {
-                transform: translateY(-2px);
-                background-color: theme('colors.primary');
-                color: theme('colors.on-primary');
-                border-color: theme('colors.primary');
-            }
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: {
+            inter: ["Inter", "sans-serif"]
+          },
+          colors: {
+            ink: "#05070d",
+            panel: "rgba(12, 15, 25, 0.72)",
+            panelStrong: "rgba(18, 23, 38, 0.92)",
+            line: "rgba(255,255,255,0.12)",
+            soft: "#aeb8d4",
+            text: "#eef3ff",
+            blue: "#7db7ff",
+            cyan: "#66f6ff",
+            violet: "#b892ff",
+            green: "#8dffcb"
+          }
         }
-    </style>
+      }
+    }
+  </script>
 </head>
-<body class="relative min-h-screen selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
-    
-    <div id="cursor"></div>
 
-    <div class="fixed inset-0 pointer-events-none z-[-1] overflow-hidden" id="parallax-bg">
-        <div class="absolute inset-0 bg-background-pure"></div>
-        <canvas class="absolute inset-0 w-full h-full opacity-30 transition-transform duration-100 ease-out" id="network-canvas" style="transform: scale(1.1);"></canvas>
-        <div class="absolute top-0 left-0 w-[800px] h-[800px] bg-electric-glow rounded-full blur-[120px] opacity-30 transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-100 ease-out" id="glow-bg"></div>
+<body class="font-inter bg-ink text-text overflow-x-hidden selection:bg-cyan selection:text-ink">
+
+  <!-- Custom cursor -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- Scroll progress -->
+  <div id="scroll-progress"></div>
+
+  <!-- Background -->
+  <div class="fixed inset-0 -z-50 overflow-hidden">
+    <canvas id="constellation-canvas"></canvas>
+    <div class="aurora aurora-one"></div>
+    <div class="aurora aurora-two"></div>
+    <div class="aurora aurora-three"></div>
+    <div class="noise-layer"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-40 border-b border-white/10 bg-ink/55 backdrop-blur-2xl">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
+      <a href="#home" class="group flex items-center gap-3">
+        <span class="grid h-10 w-10 place-items-center rounded-2xl border border-white/15 bg-white/5 text-sm font-black text-cyan shadow-[0_0_30px_rgba(102,246,255,0.15)]">
+          SB
+        </span>
+        <span class="leading-tight">
+          <span class="block text-sm font-bold tracking-wide text-white">Soham Banarase</span>
+          <span class="block text-xs text-soft">Data · AI · Audit Tech</span>
+        </span>
+      </a>
+
+      <div class="hidden items-center gap-7 md:flex">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#experience">Experience</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#skills">Skills</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </div>
+
+      <button id="mobile-menu-btn" class="grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-white/5 md:hidden">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
     </div>
 
-    <nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-surface-border transition-all duration-300">
-        <div class="flex justify-between items-center px-8 py-4 max-w-container-max mx-auto">
-            <a class="font-headline-md text-headline-md font-bold text-on-surface tracking-tighter hover:text-primary transition-colors" href="#">
-                Soham Banarase
-            </a>
-            <div class="hidden md:flex gap-8 items-center">
-                <a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md cursor-pointer transition-all active:scale-95" href="#about">About</a>
-                <a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 cursor-pointer active:scale-95" href="#experience">Experience</a>
-                <a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 cursor-pointer active:scale-95" href="#projects">Projects</a>
-                <a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 cursor-pointer active:scale-95" href="#contact">Contact</a>
-            </div>
-            <button class="md:hidden text-on-surface p-2 hover:text-primary transition-colors">
-                <span class="material-symbols-outlined">menu</span>
-            </button>
-        </div>
-    </nav>
+    <div id="mobile-menu" class="hidden border-t border-white/10 bg-ink/95 px-5 py-4 md:hidden">
+      <a class="mobile-link" href="#about">About</a>
+      <a class="mobile-link" href="#experience">Experience</a>
+      <a class="mobile-link" href="#projects">Projects</a>
+      <a class="mobile-link" href="#skills">Skills</a>
+      <a class="mobile-link" href="#contact">Contact</a>
+    </div>
+  </nav>
 
-    <main class="pt-[100px]">
-        
-        <section class="relative min-h-[921px] flex items-center justify-center py-section-padding px-gutter md:px-8 max-w-container-max mx-auto reveal" id="about">
-            <div class="flex flex-col items-center text-center z-10 max-w-3xl">
-                <h1 class="font-headline-xl text-headline-xl md:text-[72px] md:leading-[1.1] mb-6 text-on-surface tracking-tighter stagger-reveal" id="hero-headline">
-                    </h1>
-                <p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl reveal reveal-delay-2">
-                    What I love about data is that it's never really about the numbers. It's about the questions they help you ask and the decisions they make clearer. As a Data Analyst in Internal Audit at DHL, I get to work at the intersection of data analytics, cloud technologies, and audit, helping teams spot what matters and act on it. My background is in Artificial Intelligence (M.Sc., FAU Erlangen-Nürnberg) and software development, but what keeps me going is the collaborative side, working with smart people on problems that actually mean something. If any of this resonates, let's connect. I'm always up for a good conversation.
+  <!-- Main -->
+  <main>
+
+    <!-- Hero -->
+    <section id="home" class="relative flex min-h-screen items-center px-5 pt-28 md:px-8">
+      <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+
+        <div class="reveal">
+          <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-soft backdrop-blur-xl">
+            <span class="relative flex h-2.5 w-2.5">
+              <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green opacity-70"></span>
+              <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-green"></span>
+            </span>
+            Building intelligent data products for real-world decisions
+          </div>
+
+          <h1 class="max-w-5xl text-5xl font-black tracking-[-0.06em] text-white sm:text-6xl md:text-7xl lg:text-8xl">
+            I turn complex data into
+            <span class="gradient-text">clear, useful systems.</span>
+          </h1>
+
+          <p class="mt-7 max-w-2xl text-lg leading-8 text-soft md:text-xl">
+            I’m Soham Banarase — a Data Analyst in Internal Audit at DHL, with a background in Artificial Intelligence,
+            cloud-native software, and user-focused analytics products. I like building tools that make data easier to
+            understand, trust, and act on.
+          </p>
+
+          <div class="mt-9 flex flex-col gap-4 sm:flex-row">
+            <a href="#projects" class="magnetic-btn primary-btn">
+              View Featured Work
+              <span class="material-symbols-outlined text-[19px]">arrow_downward</span>
+            </a>
+            <a href="mailto:sohambanarase1999@gmail.com" class="magnetic-btn secondary-btn">
+              Let’s Connect
+              <span class="material-symbols-outlined text-[19px]">north_east</span>
+            </a>
+          </div>
+
+          <div class="mt-10 grid max-w-2xl grid-cols-3 gap-3">
+            <div class="metric-card">
+              <span class="metric-value">AI</span>
+              <span class="metric-label">Modeling</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-value">Dash</span>
+              <span class="metric-label">Web Apps</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-value">Audit</span>
+              <span class="metric-label">Analytics</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero visual -->
+        <div class="reveal reveal-delay-2 relative mx-auto h-[430px] w-full max-w-[470px] md:h-[560px]">
+          <div class="orbital-system">
+            <div class="core-card tilt-card">
+              <div class="core-glow"></div>
+              <div class="relative z-10">
+                <p class="text-sm uppercase tracking-[0.3em] text-cyan">Portfolio Signal</p>
+                <h2 class="mt-5 text-4xl font-black tracking-[-0.04em] text-white">Data Analyst</h2>
+                <p class="mt-3 text-sm leading-6 text-soft">
+                  AI, analytics, automation, and audit technology — designed with clarity and usability in mind.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto reveal reveal-delay-3">
-                    <a class="px-8 py-4 bg-inverse-primary text-white font-label-md text-label-md rounded-full hover:bg-primary-container hover:text-on-primary-container transition-all duration-300 text-center flex items-center justify-center gap-2 shimmer-btn hover:shadow-lg hover:shadow-primary/20 active:scale-95 group" href="#projects">
-                        View My Work
-                        <span class="material-symbols-outlined text-[18px] group-hover:translate-y-1 transition-transform duration-300">arrow_downward</span>
-                    </a>
-                    <a class="px-8 py-4 bg-transparent border border-surface-border text-on-surface font-label-md text-label-md rounded-full hover:bg-surface-container-high hover:border-surface-variant transition-all duration-300 text-center active:scale-95" href="#contact">
-                        Get in Touch
-                    </a>
-                </div>
-            </div>
-        </section>
 
-        <section class="py-section-padding px-gutter md:px-8 max-w-container-max mx-auto" id="experience">
-            <div class="mb-16 reveal">
-                <h2 class="font-headline-lg text-headline-lg md:font-headline-lg-mobile md:text-headline-lg-mobile text-on-surface mb-4">Experience</h2>
-                <div class="w-12 h-1 bg-primary rounded-full transition-all duration-500 hover:w-24"></div>
-            </div>
-            <div class="relative pl-8 md:pl-0">
-                <div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-surface-border transform md:-translate-x-1/2"></div>
-                
-                <div class="relative mb-16 md:w-1/2 md:pr-12 ml-auto md:ml-0 group reveal">
-                    <div class="absolute left-[-32px] md:right-[-6px] md:left-auto top-1.5 w-3 h-3 bg-primary rounded-full shadow-[0_0_10px_rgba(173,198,255,0.5)] z-10 timeline-point transition-all duration-300"></div>
-                    <div class="glass-panel p-8 rounded-xl transition-all duration-300 hover:border-primary/50 relative hover:-translate-y-1 hover:shadow-xl hover:shadow-black/50">
-                        <span class="inline-block font-label-sm text-label-sm text-primary mb-2">August 2025 - Present</span>
-                        <h3 class="font-headline-md text-headline-md text-on-surface mb-1 group-hover:text-primary transition-colors">Auditor Data Analytics</h3>
-                        <h4 class="font-body-md text-body-md text-on-surface-variant mb-4 flex items-center gap-2">
-                            <span class="material-symbols-outlined text-[16px]">business</span> DHL Corporate Audit
-                        </h4>
-                        <ul class="font-body-md text-body-md text-on-surface-variant list-disc pl-5 space-y-2">
-                            <li>Supporting DHL's Internal Audit function by turning complex data into tools, insights, and workflows that help teams work smarter and faster.</li>
-                            <li>Building interactive web applications in Dash to make audit data accessible and actionable</li>
-                            <li>Designing and automating data pipelines and workflows using KNIME</li>
-                            <li>Fine-tuning LLMs and classifier models to support audit classification and decision-making</li>
-                            <li>Analyzing and reporting on data to surface patterns, risks, and opportunities across the network</li>
-                        </ul>
-                    </div>
-                </div>
+                <div class="mt-7 space-y-3">
+                  <div class="signal-row">
+                    <span>Insight Design</span>
+                    <strong>94%</strong>
+                  </div>
+                  <div class="signal-bar"><span style="width:94%"></span></div>
 
-                <div class="relative mb-16 md:w-1/2 md:pl-12 ml-auto md:ml-auto group reveal">
-                    <div class="absolute left-[-32px] md:left-[-6px] top-1.5 w-3 h-3 bg-surface-variant rounded-full border border-surface-border z-10 group-hover:bg-primary transition-all duration-300 timeline-point"></div>
-                    <div class="glass-panel p-8 rounded-xl transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/50">
-                        <span class="inline-block font-label-sm text-label-sm text-on-surface-variant mb-2 group-hover:text-primary transition-colors">April 2025 - April 2025</span>
-                        <h3 class="font-headline-md text-headline-md text-on-surface mb-1 group-hover:text-primary transition-colors">AI Software Engineer</h3>
-                        <h4 class="font-body-md text-body-md text-on-surface-variant mb-4 flex items-center gap-2">
-                            <span class="material-symbols-outlined text-[16px]">local_cafe</span> Red Bull
-                        </h4>
-                        <ul class="font-body-md text-body-md text-on-surface-variant list-disc pl-5 space-y-2">
-                            <li>AI Software Engineer role at Red Bull</li>
-                        </ul>
-                    </div>
-                </div>
+                  <div class="signal-row">
+                    <span>Automation Thinking</span>
+                    <strong>89%</strong>
+                  </div>
+                  <div class="signal-bar"><span style="width:89%"></span></div>
 
-                <div class="relative mb-16 md:w-1/2 md:pr-12 ml-auto md:ml-0 group reveal">
-                    <div class="absolute left-[-32px] md:right-[-6px] md:left-auto top-1.5 w-3 h-3 bg-surface-variant rounded-full border border-surface-border z-10 group-hover:bg-primary transition-all duration-300 timeline-point"></div>
-                    <div class="glass-panel p-8 rounded-xl transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/50">
-                        <span class="inline-block font-label-sm text-label-sm text-on-surface-variant mb-2 group-hover:text-primary transition-colors">September 2023 - April 2025</span>
-                        <h3 class="font-headline-md text-headline-md text-on-surface mb-1 group-hover:text-primary transition-colors">Cloud Software Engineer (AI & Data Mesh)</h3>
-                        <h4 class="font-body-md text-body-md text-on-surface-variant mb-4 flex items-center gap-2">
-                            <span class="material-symbols-outlined text-[16px]">precision_manufacturing</span> Siemens
-                        </h4>
-                        <ul class="font-body-md text-body-md text-on-surface-variant list-disc pl-5 space-y-2">
-                            <li>Optimized Large Language Models (LLMs) to generate APIs within a data mesh architecture, facilitating seamless integration of diverse data types.</li>
-                            <li>Developed cloud-native AI solutions for enhanced data-driven decision-making and process automation.</li>
-                            <li>Led full-stack integration by designing scalable backend services and frontend user interface</li>
-                        </ul>
-                    </div>
+                  <div class="signal-row">
+                    <span>AI Product Mindset</span>
+                    <strong>92%</strong>
+                  </div>
+                  <div class="signal-bar"><span style="width:92%"></span></div>
                 </div>
-
-                <div class="relative mb-16 md:w-1/2 md:pl-12 ml-auto md:ml-auto group reveal">
-                    <div class="absolute left-[-32px] md:left-[-6px] top-1.5 w-3 h-3 bg-surface-variant rounded-full border border-surface-border z-10 group-hover:bg-primary transition-all duration-300 timeline-point"></div>
-                    <div class="glass-panel p-8 rounded-xl transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/50">
-                        <span class="inline-block font-label-sm text-label-sm text-on-surface-variant mb-2 group-hover:text-primary transition-colors">April 2022 - January 2023</span>
-                        <h3 class="font-headline-md text-headline-md text-on-surface mb-1 group-hover:text-primary transition-colors">Web Application Development</h3>
-                        <h4 class="font-body-md text-body-md text-on-surface-variant mb-4 flex items-center gap-2">
-                            <span class="material-symbols-outlined text-[16px]">local_hospital</span> Evonext Healthcare
-                        </h4>
-                        <ul class="font-body-md text-body-md text-on-surface-variant list-disc pl-5 space-y-2">
-                            <li>Designed and implemented a ReactJS-based cross-browser web application, reducing frontend errors by 40%.</li>
-                            <li>Built responsive and interactive UIs, significantly improving user engagement and accessibility.</li>
-                            <li>Developed and optimized backend APIs using Java, MySQL, ensuring secure and scalable communication between services.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="relative mb-16 md:w-1/2 md:pr-12 ml-auto md:ml-0 group reveal">
-                    <div class="absolute left-[-32px] md:right-[-6px] md:left-auto top-1.5 w-3 h-3 bg-surface-variant rounded-full border border-surface-border z-10 group-hover:bg-primary transition-all duration-300 timeline-point"></div>
-                    <div class="glass-panel p-8 rounded-xl transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/50">
-                        <span class="inline-block font-label-sm text-label-sm text-on-surface-variant mb-2 group-hover:text-primary transition-colors">June 2021 - June 2021</span>
-                        <h3 class="font-headline-md text-headline-md text-on-surface mb-1 group-hover:text-primary transition-colors">Engineering Intern</h3>
-                        <h4 class="font-body-md text-body-md text-on-surface-variant mb-4 flex items-center gap-2">
-                            <span class="material-symbols-outlined text-[16px]">analytics</span> KPMG
-                        </h4>
-                        <ul class="font-body-md text-body-md text-on-surface-variant list-disc pl-5 space-y-2">
-                            <li>Completed a simulation focused on advising a client on customer targeting with the Data, Analytics & Modelling team</li>
-                            <li>Assessed data quality and completeness in preparation for analysis</li>
-                            <li>Analysed data to target high-value customers based on demographics and attributes</li>
-                            <li>Developed dashboards to communicate findings with visuals</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="relative mb-16 md:w-1/2 md:pl-12 ml-auto md:ml-auto group reveal">
-                    <div class="absolute left-[-32px] md:left-[-6px] top-1.5 w-3 h-3 bg-surface-variant rounded-full border border-surface-border z-10 group-hover:bg-primary transition-all duration-300 timeline-point"></div>
-                    <div class="glass-panel p-8 rounded-xl transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/50">
-                        <span class="inline-block font-label-sm text-label-sm text-on-surface-variant mb-2 group-hover:text-primary transition-colors">July 2020 - August 2020</span>
-                        <h3 class="font-headline-md text-headline-md text-on-surface mb-1 group-hover:text-primary transition-colors">Web/App Development Intern</h3>
-                        <h4 class="font-body-md text-body-md text-on-surface-variant mb-4 flex items-center gap-2">
-                            <span class="material-symbols-outlined text-[16px]">devices</span> TRIOCLUST
-                        </h4>
-                        <ul class="font-body-md text-body-md text-on-surface-variant list-disc pl-5 space-y-2">
-                            <li>Developed full-stack web applications using ReactJS, Node.js, and Express.js.</li>
-                            <li>Managed SEO optimization and CMS integration, enhancing website visibility.</li>
-                            <li>Built full-stack applications with DNS management and cPanel.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-section-padding px-gutter md:px-8 max-w-container-max mx-auto" id="projects">
-            <div class="mb-16 reveal">
-                <h2 class="font-headline-lg text-headline-lg md:font-headline-lg-mobile md:text-headline-lg-mobile text-on-surface mb-4">Featured Projects</h2>
-                <div class="w-12 h-1 bg-primary rounded-full transition-all duration-500 hover:w-24"></div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="glass-panel rounded-xl overflow-hidden flex flex-col group glow-effect transition-all duration-400 cursor-pointer reveal reveal-delay-1">
-                    <div class="h-48 w-full bg-surface-container-high relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] to-transparent z-10 opacity-80 group-hover:opacity-60 transition-opacity duration-300"></div>
-                        <img alt="Abstract representation of text-to-image AI" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANhX-FhEPFBuxyn8ny50B8fg7O6AFddr9pFKlY4c8iMCn-IGsLGKDsbg5O_-6t55VCKmFB7YtO-07iTSPp3FlQuB1wg3Bcg0PFMOu6cJAOgCsgQinFQxOmXJH5AkKUlM1E4VuggeSf97ZROECCbiqT5o5JSt1rLW2JaY4oqPaeiVNY_IRSFcT1Vhvxp297cPG1jl4ju8fhawIlojTna5X0epPPy9LXMFYDfZ_8_cg2vuSzCY-lc-WgbGUeAycVF59e7uETpzB8VllQ"/>
-                    </div>
-                    <div class="p-6 flex-grow flex flex-col relative z-20">
-                        <div class="flex items-center gap-2 mb-3">
-                            <div class="w-2 h-2 rounded-full bg-primary group-hover:animate-pulse"></div>
-                            <span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">AI Research</span>
-                        </div>
-                        <h3 class="font-headline-md text-headline-md text-on-surface mb-3 line-clamp-2 group-hover:text-primary transition-colors duration-300">Visio-Linguistic Analysis of Text-to-Image AI</h3>
-                        <p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow line-clamp-3">
-                            Comprehensive evaluation of multi-modal AI models focusing on alignment between textual prompts and generated visual outputs using advanced metric evaluation.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="px-3 py-1 bg-surface-container rounded-full font-label-sm text-label-sm text-on-surface-variant border border-surface-border skill-tag">Python</span>
-                            <span class="px-3 py-1 bg-surface-container rounded-full font-label-sm text-label-sm text-on-surface-variant border border-surface-border skill-tag">PyTorch</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="glass-panel rounded-xl overflow-hidden flex flex-col group glow-effect transition-all duration-400 cursor-pointer reveal reveal-delay-2">
-                    <div class="h-48 w-full bg-surface-container-high relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] to-transparent z-10 opacity-80 group-hover:opacity-60 transition-opacity duration-300"></div>
-                        <img alt="Surgical robotics lab" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCS--7GuhweoPkqd85Ptv7LK-TKRxzPu2hRV9UrqbNHcyiXr8YJd_wQ_0mfge4NFJl2KLeZNjHPY76CHGiLl5e9R54SB-2gDySDK_ghDazcIlbH2Gt2GxLWKzeipb-2oTaYFXHUjB4llvuXshfSF5cLgbDOXpXeiVap7NJiHn01uhxsu7C5zjyLOz3XjuG-JOP_OdTJsXm095sCoiHYpEnOylwf-fEQh7yyNl-mArNxTv7znrpvGI9wMEukru3Uk3wgNS9LZKvYjTsi"/>
-                    </div>
-                    <div class="p-6 flex-grow flex flex-col relative z-20">
-                        <div class="flex items-center gap-2 mb-3">
-                            <div class="w-2 h-2 rounded-full bg-primary group-hover:animate-pulse"></div>
-                            <span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">Robotics & Vision</span>
-                        </div>
-                        <h3 class="font-headline-md text-headline-md text-on-surface mb-3 line-clamp-2 group-hover:text-primary transition-colors duration-300">AI-Based Navigation of Surgical Robot</h3>
-                        <p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow line-clamp-3">
-                            Developed an intelligent navigation system utilizing computer vision to enhance precision and autonomy of robotic systems in simulated surgical environments.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="px-3 py-1 bg-surface-container rounded-full font-label-sm text-label-sm text-on-surface-variant border border-surface-border skill-tag">OpenCV</span>
-                            <span class="px-3 py-1 bg-surface-container rounded-full font-label-sm text-label-sm text-on-surface-variant border border-surface-border skill-tag">ROS</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-panel rounded-xl overflow-hidden flex flex-col group glow-effect transition-all duration-400 cursor-pointer reveal reveal-delay-3">
-                    <div class="h-48 w-full bg-surface-container-high relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] to-transparent z-10 opacity-80 group-hover:opacity-60 transition-opacity duration-300"></div>
-                        <img alt="Data dashboard interface" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAusxf2kbFZyiv_fTzAGZ4FEyA9uehDXGz0D1wj1IIm62av9wId99YLI2Nu0Jsa8-dqwLkh0BQdokG-Xq0PPya8ii6-GQhl56RSJ7lHyldEinMg-Of6ZsjJ-ocZhW-I5VjICKP_dF7zXXDNWGnUto8Mcku8ukey4I9xN9nSHtKdIbLEZV6fXaMoWoReO92zYHr3ZT5GEk9O96WKhxiZyu0lg1fQ2RnYh2qV8urWx2bjAWlYrCR0HlA6UgSiMbks0UPg9URzvEdBV-qZ"/>
-                    </div>
-                    <div class="p-6 flex-grow flex flex-col relative z-20">
-                        <div class="flex items-center gap-2 mb-3">
-                            <div class="w-2 h-2 rounded-full bg-primary group-hover:animate-pulse"></div>
-                            <span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">Full-Stack App</span>
-                        </div>
-                        <h3 class="font-headline-md text-headline-md text-on-surface mb-3 line-clamp-2 group-hover:text-primary transition-colors duration-300">Smart India Hackathon: Clinical Trials Web App</h3>
-                        <p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow line-clamp-3">
-                            Award-winning platform built to streamline and manage clinical trial data securely, featuring real-time analytics and a robust patient tracking system.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="px-3 py-1 bg-surface-container rounded-full font-label-sm text-label-sm text-on-surface-variant border border-surface-border skill-tag">React</span>
-                            <span class="px-3 py-1 bg-surface-container rounded-full font-label-sm text-label-sm text-on-surface-variant border border-surface-border skill-tag">Node.js</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-section-padding px-gutter md:px-8 max-w-container-max mx-auto">
-            <div class="mb-16 reveal">
-                <h2 class="font-headline-lg text-headline-lg md:font-headline-lg-mobile md:text-headline-lg-mobile text-on-surface mb-4">Digital Skills</h2>
-                <div class="w-12 h-1 bg-primary rounded-full transition-all duration-500 hover:w-24"></div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="glass-panel p-8 rounded-xl reveal reveal-delay-1 hover:-translate-y-2 transition-transform duration-300 group">
-                    <h3 class="font-headline-md text-headline-md text-on-surface mb-6 flex items-center gap-3 group-hover:text-primary transition-colors">
-                        <span class="material-symbols-outlined text-primary transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110">psychology</span>
-                        AI & ML
-                    </h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-4 py-2 bg-surface-container-high rounded-full font-label-md text-label-md text-on-surface border border-surface-border skill-tag">Computer Vision</span>
-                        <span class="px-4 py-2 bg-surface-container-high rounded-full font-label-md text-label-md text-on-surface border border-surface-border skill-tag">PyTorch</span>
-                    </div>
-                </div>
-                <div class="glass-panel p-8 rounded-xl reveal reveal-delay-2 hover:-translate-y-2 transition-transform duration-300 group">
-                    <h3 class="font-headline-md text-headline-md text-on-surface mb-6 flex items-center gap-3 group-hover:text-primary transition-colors">
-                        <span class="material-symbols-outlined text-primary transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110">cloud</span>
-                        Cloud & Data Mesh
-                    </h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-4 py-2 bg-surface-container-high rounded-full font-label-md text-label-md text-on-surface border border-surface-border skill-tag">AWS</span>
-                        <span class="px-4 py-2 bg-surface-container-high rounded-full font-label-md text-label-md text-on-surface border border-surface-border skill-tag">Docker</span>
-                    </div>
-                </div>
-                <div class="glass-panel p-8 rounded-xl reveal reveal-delay-3 hover:-translate-y-2 transition-transform duration-300 group">
-                    <h3 class="font-headline-md text-headline-md text-on-surface mb-6 flex items-center gap-3 group-hover:text-primary transition-colors">
-                        <span class="material-symbols-outlined text-primary transition-transform duration-300 group-hover:scale-110">analytics</span>
-                        Data Analytics
-                    </h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-4 py-2 bg-surface-container-high rounded-full font-label-md text-label-md text-on-surface border border-surface-border skill-tag">Data Mining</span>
-                        <span class="px-4 py-2 bg-surface-container-high rounded-full font-label-md text-label-md text-on-surface border border-surface-border skill-tag">KNIME</span>
-                        <span class="px-4 py-2 bg-surface-container-high rounded-full font-label-md text-label-md text-on-surface border border-surface-border skill-tag">Dash</span>
-                    </div>
-                </div>
-                <div class="glass-panel p-8 rounded-xl reveal reveal-delay-4 hover:-translate-y-2 transition-transform duration-300 group">
-                    <h3 class="font-headline-md text-headline-md text-on-surface mb-6 flex items-center gap-3 group-hover:text-primary transition-colors">
-                        <span class="material-symbols-outlined text-primary transition-transform duration-300 group-hover:rotate-45 group-hover:scale-110">build</span>
-                        Other Tools
-                    </h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-4 py-2 bg-surface-container-high rounded-full font-label-md text-label-md text-on-surface border border-surface-border skill-tag">React.js</span>
-                        <span class="px-4 py-2 bg-surface-container-high rounded-full font-label-md text-label-md text-on-surface border border-surface-border skill-tag">Adobe Photoshop CS6</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-section-padding px-gutter md:px-8 max-w-container-max mx-auto">
-            <div class="mb-16 reveal">
-                <h2 class="font-headline-lg text-headline-lg md:font-headline-lg-mobile md:text-headline-lg-mobile text-on-surface mb-4">Certifications & Honors</h2>
-                <div class="w-12 h-1 bg-primary rounded-full transition-all duration-500 hover:w-24"></div>
+              </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="glass-panel p-8 rounded-xl reveal reveal-delay-1 flex flex-col hover:-translate-y-2 transition-transform duration-300 group">
-                    <h3 class="font-headline-md text-headline-md text-on-surface mb-6 flex items-center gap-3 group-hover:text-primary transition-colors">
-                        <span class="material-symbols-outlined text-primary transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110">workspace_premium</span>
-                        Certifications
-                    </h3>
-                    <ul class="font-body-md text-body-md text-on-surface-variant list-none space-y-4">
-                        <li class="flex items-start gap-3">
-                            <span class="material-symbols-outlined text-primary text-[20px] mt-1">check_circle</span>
-                            <span>Android & Firebase ML Kit in Java</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="material-symbols-outlined text-primary text-[20px] mt-1">check_circle</span>
-                            <span>TCS Certified in Communication Skills</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="material-symbols-outlined text-primary text-[20px] mt-1">check_circle</span>
-                            <span>Microsoft AI Classroom Series</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="glass-panel p-8 rounded-xl reveal reveal-delay-2 flex flex-col hover:-translate-y-2 transition-transform duration-300 group">
-                    <h3 class="font-headline-md text-headline-md text-on-surface mb-6 flex items-center gap-3 group-hover:text-primary transition-colors">
-                        <span class="material-symbols-outlined text-primary transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110">emoji_events</span>
-                        Honors & Awards
-                    </h3>
-                    <ul class="font-body-md text-body-md text-on-surface-variant list-none space-y-4">
-                        <li class="flex items-start gap-3">
-                            <span class="material-symbols-outlined text-primary text-[20px] mt-1">star</span>
-                            <span>Finalists</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="material-symbols-outlined text-primary text-[20px] mt-1">star</span>
-                            <span>Finalists</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="material-symbols-outlined text-primary text-[20px] mt-1">star</span>
-                            <span>Finalists</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="w-full border-t border-surface-border bg-[#0e0e0e] mt-section-padding relative overflow-hidden" id="contact">
-        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/10 blur-[100px] rounded-full pointer-events-none"></div>
-        
-        <div class="py-16 px-gutter md:px-8 max-w-container-max mx-auto relative z-10 flex flex-col items-center text-center gap-8">
-            <h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tighter" data-scroll-fade>
-                Let's Build Something <br/>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-inverse-primary">Great Together.</span>
-            </h2>
-            
-            <a href="mailto:sohambanarase1999@gmail.com" class="font-headline-md md:text-[32px] text-on-surface hover:text-primary transition-colors duration-300 relative group mt-4">
-                sohambanarase1999@gmail.com
-                <span class="absolute -bottom-2 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            
-            <div class="flex flex-wrap justify-center gap-6 mt-8">
-                <a href="https://www.linkedin.com/in/sohambanarase/" target="_blank" class="px-8 py-4 rounded-full border border-surface-border bg-surface-container hover:border-primary hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(173,198,255,0.2)] transition-all duration-300 flex items-center gap-3 group">
-                    <span class="text-on-surface group-hover:text-primary font-label-md tracking-wider uppercase transition-colors">LinkedIn</span>
-                    <span class="material-symbols-outlined text-[18px] text-on-surface group-hover:text-primary group-hover:translate-x-1 transition-all">arrow_forward</span>
-                </a>
-                <a href="https://github.com/sohambanarase" target="_blank" class="px-8 py-4 rounded-full border border-surface-border bg-surface-container hover:border-primary hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(173,198,255,0.2)] transition-all duration-300 flex items-center gap-3 group">
-                    <span class="text-on-surface group-hover:text-primary font-label-md tracking-wider uppercase transition-colors">GitHub</span>
-                    <span class="material-symbols-outlined text-[18px] text-on-surface group-hover:text-primary group-hover:translate-x-1 transition-all">arrow_forward</span>
-                </a>
-            </div>
-            
-            <div class="w-full h-px bg-surface-border mt-12 mb-6"></div>
-            
-            <div class="font-body-md text-on-surface-variant w-full flex flex-col md:flex-row justify-between items-center gap-4">
-                <span>© 2026 Soham Banarase. All rights reserved.</span>
-                <a href="#about" class="hover:text-primary transition-colors flex items-center gap-2 group">
-                    Back to top 
-                    <span class="material-symbols-outlined text-[18px] group-hover:-translate-y-1 transition-transform">arrow_upward</span>
-                </a>
-            </div>
+            <span class="orbit-pill orbit-one">Python</span>
+            <span class="orbit-pill orbit-two">KNIME</span>
+            <span class="orbit-pill orbit-three">LLMs</span>
+            <span class="orbit-pill orbit-four">Dash</span>
+            <span class="orbit-pill orbit-five">Cloud</span>
+          </div>
         </div>
-    </footer>
 
-    <script>
-        // Prefers Reduced Motion Check
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      </div>
+    </section>
 
-        // Staggered Text Reveal for Hero
-        const heroText = `Hello, I'm <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-inverse-primary">Soham Banarase</span><br><span class="text-3xl md:text-5xl text-on-surface-variant font-normal">Data Analyst | Master's AI</span>`;
-        const headlineElement = document.getElementById('hero-headline');
-        
-        if (!prefersReducedMotion) {
-            headlineElement.innerHTML = `
-                <span>Hello,</span> <span>I'm</span> <br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-inverse-primary" style="animation-delay: 0.2s">Soham</span> 
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-inverse-primary" style="animation-delay: 0.3s">Banarase</span><br>
-                <span class="text-3xl md:text-5xl text-on-surface-variant font-normal" style="animation-delay: 0.4s">Data Analyst | Master's AI</span>
-            `;
-        } else {
-            headlineElement.innerHTML = heroText;
-        }
+    <!-- About -->
+    <section id="about" class="section-shell">
+      <div class="section-heading reveal">
+        <p class="eyebrow">About</p>
+        <h2>Not just dashboards — decision systems.</h2>
+      </div>
 
-        // Original Intersection Observer (Fallback for non-GSAP elements)
-        if (!prefersReducedMotion) {
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px 0px -100px 0px',
-                threshold: 0.1
-            };
+      <div class="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+        <div class="glass-card reveal">
+          <p class="text-lg leading-8 text-soft">
+            What I love about data is that it is never really only about numbers. It is about asking sharper questions,
+            finding patterns that matter, and giving people confidence to make better decisions.
+          </p>
+          <p class="mt-5 text-lg leading-8 text-soft">
+            My work sits at the intersection of data analytics, artificial intelligence, cloud technologies, and internal audit.
+            I enjoy building practical systems: tools that are technically strong, visually clean, and easy for non-technical
+            users to actually use.
+          </p>
+        </div>
 
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div class="feature-card reveal reveal-delay-1">
+            <span class="material-symbols-outlined">psychology</span>
+            <h3>AI-first thinking</h3>
+            <p>LLMs, classification, computer vision, and intelligent workflow design.</p>
+          </div>
+          <div class="feature-card reveal reveal-delay-2">
+            <span class="material-symbols-outlined">analytics</span>
+            <h3>Analytics that explain</h3>
+            <p>Reports, dashboards, and patterns that help people understand what is happening.</p>
+          </div>
+          <div class="feature-card reveal reveal-delay-3">
+            <span class="material-symbols-outlined">deployed_code</span>
+            <h3>Builder mindset</h3>
+            <p>Dash, React, backend services, automation pipelines, and product-style delivery.</p>
+          </div>
+          <div class="feature-card reveal reveal-delay-4">
+            <span class="material-symbols-outlined">groups</span>
+            <h3>User-centered delivery</h3>
+            <p>Interfaces and workflows designed for adoption, not just technical completeness.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            document.querySelectorAll('.reveal').forEach((element) => {
-                observer.observe(element);
-            });
-        } else {
-            document.querySelectorAll('.reveal').forEach((element) => {
-                element.style.opacity = '1';
-                element.style.transform = 'none';
-            });
-        }
+    <!-- Experience -->
+    <section id="experience" class="section-shell">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Experience</p>
+        <h2>A career path across AI, cloud, web apps, and audit analytics.</h2>
+      </div>
 
-        // Network Canvas Animation & Interaction
-        const canvas = document.getElementById('network-canvas');
-        const ctx = canvas.getContext('2d');
+      <div class="timeline">
+        <div class="timeline-line"></div>
 
-        let particlesArray;
+        <article class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card tilt-card">
+            <p class="date">August 2025 — Present</p>
+            <h3>Auditor Data Analytics</h3>
+            <h4>DHL Corporate Audit</h4>
+            <ul>
+              <li>Building interactive Dash applications for audit reporting and analytics.</li>
+              <li>Designing workflows that convert audit data into usable tools and insights.</li>
+              <li>Working with AI/ML models for classification and decision-support use cases.</li>
+              <li>Combining data analytics, automation, and stakeholder-friendly UX.</li>
+            </ul>
+          </div>
+        </article>
 
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        <article class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card tilt-card">
+            <p class="date">April 2025</p>
+            <h3>AI Software Engineer</h3>
+            <h4>Red Bull</h4>
+            <ul>
+              <li>Worked on AI software engineering tasks in a fast-moving technical environment.</li>
+              <li>Applied engineering thinking to intelligent systems and software workflows.</li>
+            </ul>
+          </div>
+        </article>
 
-        let mouse = {
-            x: null,
-            y: null,
-            radius: (canvas.height / 80) * (canvas.width / 80)
-        };
+        <article class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card tilt-card">
+            <p class="date">September 2023 — April 2025</p>
+            <h3>Cloud Software Engineer — AI & Data Mesh</h3>
+            <h4>Siemens</h4>
+            <ul>
+              <li>Worked on LLM-powered API generation within a data mesh context.</li>
+              <li>Developed cloud-native AI solutions for process automation and data-driven workflows.</li>
+              <li>Contributed across backend services, frontend interfaces, and scalable integration design.</li>
+            </ul>
+          </div>
+        </article>
 
-        if (!prefersReducedMotion) {
-            const canvasEl = document.getElementById('network-canvas');
-            const glowEl = document.getElementById('glow-bg');
-            
-            document.addEventListener('mousemove', (e) => {
-                mouse.x = e.clientX;
-                mouse.y = e.clientY;
+        <article class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card tilt-card">
+            <p class="date">April 2022 — January 2023</p>
+            <h3>Web Application Development</h3>
+            <h4>Evonext Healthcare</h4>
+            <ul>
+              <li>Built responsive React-based web applications.</li>
+              <li>Developed backend APIs using Java and MySQL.</li>
+              <li>Improved frontend reliability, usability, and cross-browser behavior.</li>
+            </ul>
+          </div>
+        </article>
 
-                const mouseX = e.clientX / window.innerWidth - 0.5;
-                const mouseY = e.clientY / window.innerHeight - 0.5;
-                
-                requestAnimationFrame(() => {
-                    canvasEl.style.transform = `scale(1.1) translate(${mouseX * -20}px, ${mouseY * -20}px)`;
-                    glowEl.style.transform = `translate(calc(-50% + ${mouseX * -40}px), calc(-50% + ${mouseY * -40}px))`;
-                });
-            });
+        <article class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card tilt-card">
+            <p class="date">June 2021</p>
+            <h3>Engineering Intern</h3>
+            <h4>KPMG</h4>
+            <ul>
+              <li>Completed a data analytics simulation focused on customer targeting.</li>
+              <li>Assessed data quality and prepared analysis-ready datasets.</li>
+              <li>Created dashboard-style visual communication for findings.</li>
+            </ul>
+          </div>
+        </article>
 
-            window.addEventListener('mouseout', () => {
-                mouse.x = undefined;
-                mouse.y = undefined;
-            });
-        }
+        <article class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card tilt-card">
+            <p class="date">July 2020 — August 2020</p>
+            <h3>Web/App Development Intern</h3>
+            <h4>TRIOCLUST</h4>
+            <ul>
+              <li>Built full-stack web applications using React, Node.js, and Express.js.</li>
+              <li>Worked with CMS, DNS, hosting, and SEO-related tasks.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
 
-        class Particle {
-            constructor(x, y, directionX, directionY, size, color) {
-                this.x = x;
-                this.y = y;
-                this.directionX = directionX;
-                this.directionY = directionY;
-                this.size = size;
-                this.color = color;
-                this.baseX = this.x; 
-                this.baseY = this.y;
-                this.density = (Math.random() * 30) + 1;
-            }
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-                ctx.fillStyle = '#adc6ff';
-                ctx.fill();
-            }
-            update() {
-                if (mouse.x != null && !prefersReducedMotion) {
-                    let dx = mouse.x - this.x;
-                    let dy = mouse.y - this.y;
-                    let distance = Math.sqrt(dx * dx + dy * dy);
-                    let forceDirectionX = dx / distance;
-                    let forceDirectionY = dy / distance;
-                    let maxDistance = mouse.radius;
-                    let force = (maxDistance - distance) / maxDistance;
-                    let directionX = forceDirectionX * force * this.density;
-                    let directionY = forceDirectionY * force * this.density;
+    <!-- Projects -->
+    <section id="projects" class="section-shell">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Featured Projects</p>
+        <h2>Selected work with a focus on intelligence, interaction, and impact.</h2>
+      </div>
 
-                    if (distance < mouse.radius) {
-                        this.x -= directionX;
-                        this.y -= directionY;
-                    } else {
-                        if (this.x !== this.baseX) {
-                            let dx = this.x - this.baseX;
-                            this.x -= dx / 10;
-                        }
-                        if (this.y !== this.baseY) {
-                            let dy = this.y - this.baseY;
-                            this.y -= dy / 10;
-                        }
-                    }
-                }
+      <div class="project-grid">
+        <article class="project-card tilt-card reveal">
+          <div class="project-visual visual-one">
+            <span class="material-symbols-outlined">auto_awesome</span>
+          </div>
+          <div class="project-content">
+            <p class="project-type">AI Research</p>
+            <h3>Visio-Linguistic Analysis of Text-to-Image AI</h3>
+            <p>
+              Evaluation of multi-modal AI models, focusing on alignment between text prompts and generated image outputs.
+            </p>
+            <div class="tag-row">
+              <span>Python</span>
+              <span>PyTorch</span>
+              <span>Evaluation</span>
+            </div>
+          </div>
+        </article>
 
-                if (this.x > canvas.width || this.x < 0) {
-                    this.directionX = -this.directionX;
-                }
-                if (this.y > canvas.height || this.y < 0) {
-                    this.directionY = -this.directionY;
-                }
+        <article class="project-card tilt-card reveal reveal-delay-1">
+          <div class="project-visual visual-two">
+            <span class="material-symbols-outlined">precision_manufacturing</span>
+          </div>
+          <div class="project-content">
+            <p class="project-type">Robotics & Vision</p>
+            <h3>AI-Based Navigation of Surgical Robot</h3>
+            <p>
+              Intelligent navigation approach using computer vision for robotic precision in simulated surgical environments.
+            </p>
+            <div class="tag-row">
+              <span>OpenCV</span>
+              <span>ROS</span>
+              <span>Vision</span>
+            </div>
+          </div>
+        </article>
 
-                this.baseX += this.directionX;
-                this.baseY += this.directionY;
+        <article class="project-card tilt-card reveal reveal-delay-2">
+          <div class="project-visual visual-three">
+            <span class="material-symbols-outlined">monitoring</span>
+          </div>
+          <div class="project-content">
+            <p class="project-type">Full-Stack App</p>
+            <h3>Clinical Trials Web Application</h3>
+            <p>
+              Award-winning web application concept for securely managing clinical trial data with analytics and tracking.
+            </p>
+            <div class="tag-row">
+              <span>React</span>
+              <span>Node.js</span>
+              <span>Dashboards</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
 
-                if (!mouse.x || Math.sqrt((mouse.x - this.x)**2 + (mouse.y - this.y)**2) >= mouse.radius || prefersReducedMotion) {
-                   this.x = this.baseX;
-                   this.y = this.baseY;
-                }
+    <!-- Skills -->
+    <section id="skills" class="section-shell">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Digital Skills</p>
+        <h2>A practical mix of analytics, AI, engineering, and product thinking.</h2>
+      </div>
 
-                this.draw();
-            }
-        }
+      <div class="skills-orbit reveal">
+        <div class="skill-cluster">
+          <h3>AI & ML</h3>
+          <div>
+            <span>LLMs</span>
+            <span>Computer Vision</span>
+            <span>PyTorch</span>
+            <span>Classification</span>
+          </div>
+        </div>
 
-        function init() {
-            particlesArray = [];
-            let numberOfParticles = (canvas.height * canvas.width) / 15000;
-            for (let i = 0; i < numberOfParticles; i++) {
-                let size = (Math.random() * 2) + 1;
-                let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
-                let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
-                let directionX = (Math.random() * 0.5) - 0.25;
-                let directionY = (Math.random() * 0.5) - 0.25;
-                let color = '#adc6ff';
-                particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
-            }
-        }
+        <div class="skill-cluster">
+          <h3>Data Analytics</h3>
+          <div>
+            <span>Python</span>
+            <span>Pandas</span>
+            <span>KNIME</span>
+            <span>Dash</span>
+          </div>
+        </div>
 
-        function connect() {
-            let opacityValue = 1;
-            for (let a = 0; a < particlesArray.length; a++) {
-                for (let b = a; b < particlesArray.length; b++) {
-                    let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) + 
-                                   ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
-                    if (distance < (canvas.width / 7) * (canvas.height / 7)) {
-                        opacityValue = 1 - (distance / 20000);
-                        ctx.strokeStyle = 'rgba(173,198,255,' + opacityValue + ')';
-                        ctx.lineWidth = 1;
-                        ctx.beginPath();
-                        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-                        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-                        ctx.stroke();
-                    }
-                }
-            }
-        }
+        <div class="skill-cluster">
+          <h3>Cloud & Engineering</h3>
+          <div>
+            <span>AWS</span>
+            <span>Docker</span>
+            <span>APIs</span>
+            <span>Data Mesh</span>
+          </div>
+        </div>
 
-        function animate() {
-            if(!prefersReducedMotion) {
-                requestAnimationFrame(animate);
-                ctx.clearRect(0, 0, innerWidth, innerHeight);
-                for (let i = 0; i < particlesArray.length; i++) {
-                    particlesArray[i].update();
-                }
-                connect();
-            } else {
-                ctx.clearRect(0, 0, innerWidth, innerHeight);
-                for (let i = 0; i < particlesArray.length; i++) {
-                    particlesArray[i].draw();
-                }
-                connect();
-            }
-        }
+        <div class="skill-cluster">
+          <h3>Frontend & UX</h3>
+          <div>
+            <span>React</span>
+            <span>JavaScript</span>
+            <span>Responsive UI</span>
+            <span>Product Design</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        window.addEventListener('resize', function() {
-            canvas.width = innerWidth;
-            canvas.height = innerHeight;
-            init();
-            if(prefersReducedMotion) {
-                animate(); 
-            }
-        });
+    <!-- Certifications -->
+    <section class="section-shell">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Credentials</p>
+        <h2>Certifications, honors, and learning signals.</h2>
+      </div>
 
-        init();
-        animate();
+      <div class="grid gap-6 lg:grid-cols-2">
+        <div class="glass-card reveal">
+          <h3 class="card-title">
+            <span class="material-symbols-outlined">workspace_premium</span>
+            Certifications
+          </h3>
+          <ul class="clean-list">
+            <li>Android & Firebase ML Kit in Java</li>
+            <li>TCS Certified in Communication Skills</li>
+            <li>Microsoft AI Classroom Series</li>
+          </ul>
+        </div>
 
-        // --- NEW INTEGRATIONS ---
+        <div class="glass-card reveal reveal-delay-1">
+          <h3 class="card-title">
+            <span class="material-symbols-outlined">emoji_events</span>
+            Honors & Awards
+          </h3>
+          <ul class="clean-list">
+            <li>Finalist recognition in academic and innovation-focused events</li>
+            <li>Hackathon and project-based achievement experience</li>
+            <li>Consistent focus on AI, analytics, and applied problem solving</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-        // 1. Custom Cursor Logic
-        const customCursor = document.getElementById('cursor');
-        document.addEventListener('mousemove', (e) => {
-            if (!prefersReducedMotion) {
-                customCursor.style.left = e.clientX + 'px';
-                customCursor.style.top = e.clientY + 'px';
-            }
-        });
-        
-        document.querySelectorAll('a, button, .glass-panel').forEach(el => {
-            el.addEventListener('mouseenter', () => customCursor.classList.add('hovered'));
-            el.addEventListener('mouseleave', () => customCursor.classList.remove('hovered'));
-        });
+  </main>
 
-        // 2. Smooth Scrolling (Lenis)
-        if (!prefersReducedMotion && typeof Lenis !== 'undefined') {
-            const lenis = new Lenis({
-                duration: 1.2,
-                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
-                direction: 'vertical',
-                gestureDirection: 'vertical',
-                smooth: true,
-                mouseMultiplier: 1,
-            });
+  <!-- Footer -->
+  <footer id="contact" class="relative border-t border-white/10 px-5 py-16 md:px-8">
+    <div class="mx-auto max-w-7xl">
+      <div class="footer-card reveal">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2 class="mt-3 max-w-2xl text-4xl font-black tracking-[-0.04em] text-white md:text-6xl">
+            Let’s build something clear, useful, and intelligent.
+          </h2>
+          <p class="mt-5 max-w-2xl text-lg leading-8 text-soft">
+            If you want to talk about data products, AI workflows, analytics dashboards, or interesting ideas,
+            feel free to reach out.
+          </p>
+        </div>
 
-            function raf(time) {
-                lenis.raf(time);
-                requestAnimationFrame(raf);
-            }
-            requestAnimationFrame(raf);
+        <div class="footer-links">
+          <a href="mailto:sohambanarase1999@gmail.com" class="footer-link">
+            <span class="material-symbols-outlined">mail</span>
+            sohambanarase1999@gmail.com
+          </a>
 
-            // Sync Lenis with GSAP ScrollTrigger
-            if (typeof gsap !== 'undefined') {
-                lenis.on('scroll', ScrollTrigger.update);
-                gsap.ticker.add((time)=>{
-                  lenis.raf(time * 1000);
-                });
-                gsap.ticker.lagSmoothing(0);
-            }
-        }
+          <a href="https://www.linkedin.com/in/sohambanarase/" target="_blank" rel="noopener noreferrer" class="footer-link">
+            <span class="material-symbols-outlined">work</span>
+            LinkedIn
+          </a>
 
-        // 3. 3D Tilt Effect on Cards
-        if (!prefersReducedMotion && typeof VanillaTilt !== 'undefined') {
-            VanillaTilt.init(document.querySelectorAll(".glass-panel"), {
-                max: 5,           
-                speed: 400,       
-                glare: true,      
-                "max-glare": 0.1, 
-                scale: 1.02       
-            });
-        }
+          <a href="https://github.com/sohambanarase" target="_blank" rel="noopener noreferrer" class="footer-link">
+            <span class="material-symbols-outlined">code</span>
+            GitHub
+          </a>
+        </div>
+      </div>
 
-        // 4. GSAP Scroll "Structure Building" Animations
-        if (!prefersReducedMotion && typeof gsap !== 'undefined') {
-            gsap.registerPlugin(ScrollTrigger);
+      <div class="mt-10 flex flex-col justify-between gap-4 text-sm text-soft md:flex-row">
+        <p>© 2026 Soham Banarase. Built with data, motion, and digital precision.</p>
+        <a href="#home" class="hover:text-cyan">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
 
-            // Animate Section Headers
-            gsap.utils.toArray('h2').forEach(header => {
-                gsap.fromTo(header, 
-                    { y: 50, opacity: 0 },
-                    { 
-                        y: 0, opacity: 1, duration: 1, ease: "power3.out",
-                        scrollTrigger: {
-                            trigger: header,
-                            start: "top 85%",
-                            toggleActions: "play none none reverse"
-                        }
-                    }
-                );
-            });
-
-            // Staggered Timeline Animation (Experience)
-            const timelineItems = gsap.utils.toArray('#experience .glass-panel');
-            timelineItems.forEach((item, i) => {
-                gsap.fromTo(item,
-                    { x: i % 2 === 0 ? -50 : 50, opacity: 0 },
-                    {
-                        x: 0, opacity: 1, duration: 1, ease: "power3.out",
-                        scrollTrigger: {
-                            trigger: item,
-                            start: "top 85%",
-                            toggleActions: "play none none reverse"
-                        }
-                    }
-                );
-            });
-
-            // Staggered Grid Animation (Projects & Skills)
-            const projectGrids = document.querySelectorAll('#projects .grid, .grid-cols-1.lg\\:grid-cols-4, .grid-cols-1.lg\\:grid-cols-2');
-            projectGrids.forEach(grid => {
-                const cards = grid.querySelectorAll('.glass-panel');
-                gsap.fromTo(cards,
-                    { y: 100, opacity: 0, scale: 0.9 },
-                    {
-                        y: 0, opacity: 1, scale: 1, duration: 0.8, stagger: 0.15, ease: "back.out(1.2)",
-                        scrollTrigger: {
-                            trigger: grid,
-                            start: "top 80%",
-                            toggleActions: "play none none reverse"
-                        }
-                    }
-                );
-            });
-        }
-    </script>
+  <script src="app.js"></script>
 </body>
 </html>
