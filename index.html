@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" class="dark scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-, AI Engineer, and builder of intelligent data products." />  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta="width=device-width, initial-scale=1.0" />  <meta charset="UTF-8" />
+
+  <title>Soham Banarase | Data Analyst & AI Builder</title>
+  <meta name="description" content="Portfolio of Soham Banarase — Data Analyst, AI Engineer, and builder of intelligent data products." />
 
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -11,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="styles.css" />
 
   <script>
     tailwind.config = {
@@ -38,7 +40,7 @@
 
 <body class="font-inter bg-ink text-text overflow-x-hidden selection:bg-cyan selection:text-ink">
 
-  <!-- Cursor -->
+  <!-- Custom cursor -->
   <div id="cursor-dot"></div>
   <div id="cursor-ring"></div>
 
@@ -46,7 +48,7 @@
   <div id="scroll-progress"></div>
 
   <!-- Background -->
-  <div class="site-bg">
+  <div class="fixed inset-0 -z-50 overflow-hidden">
     <canvas id="constellation-canvas"></canvas>
     <div class="aurora aurora-one"></div>
     <div class="aurora aurora-two"></div>
@@ -55,7 +57,7 @@
   </div>
 
   <!-- Navigation -->
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-40 border-b border-white/10 bg-ink/65 backdrop-blur-2xl">
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-40 border-b border-white/10 bg-ink/60 backdrop-blur-2xl">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
       <a href="#home" class="group flex items-center gap-3">
         <span class="grid h-10 w-10 place-items-center rounded-2xl border border-white/15 bg-white/5 text-sm font-black text-cyan shadow-[0_0_30px_rgba(102,246,255,0.15)]">
@@ -97,20 +99,20 @@
 
         <!-- Hero Text -->
         <div class="reveal relative z-10">
-          <div class="status-pill">
-            <span class="status-dot-wrap">
-              <span class="status-dot-ping"></span>
-              <span class="status-dot"></span>
+          <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-soft backdrop-blur-xl">
+            <span class="relative flex h-2.5 w-2.5">
+              <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green opacity-70"></span>
+              <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-green"></span>
             </span>
             Building intelligent data products for real-world decisions
           </div>
 
-          <h1 class="hero-title">
+          <h1 class="max-w-5xl text-5xl font-black tracking-[-0.06em] text-white sm:text-6xl md:text-7xl lg:text-8xl">
             I turn complex data into
             <span class="gradient-text">clear, useful systems.</span>
           </h1>
 
-          <p class="hero-description">
+          <p class="mt-7 max-w-2xl text-lg leading-8 text-soft md:text-xl">
             I’m Soham Banarase — a Data Analyst in Internal Audit at DHL, with a background in Artificial Intelligence,
             cloud-native software, and user-focused analytics products. I like building tools that make data easier to
             understand, trust, and act on.
@@ -121,14 +123,13 @@
               View Featured Work
               <span class="material-symbols-outlined text-[19px]">arrow_downward</span>
             </a>
-
             <a href="mailto:sohambanarase1999@gmail.com" class="magnetic-btn secondary-btn">
               Let’s Connect
               <span class="material-symbols-outlined text-[19px]">north_east</span>
             </a>
           </div>
 
-          <div class="metric-grid">
+          <div class="mt-10 grid max-w-2xl grid-cols-3 gap-3">
             <div class="metric-card">
               <span class="metric-value">AI</span>
               <span class="metric-label">Modeling</span>
@@ -147,12 +148,16 @@
         <!-- Hero Visual -->
         <div class="hero-stage reveal reveal-delay-2">
 
-          <div class="hero-aura"></div>
+          <!-- Decorative orbit rings -->
           <div class="hero-orbit hero-orbit-one"></div>
           <div class="hero-orbit hero-orbit-two"></div>
           <div class="hero-orbit hero-orbit-three"></div>
 
-          <div class="avatar-zone tilt-card">
+          <!-- Ambient glow -->
+          <div class="hero-aura"></div>
+
+          <!-- Avatar image: main visual, fully visible -->
+          <div class="avatar-shell tilt-card">
             <div class="avatar-platform-glow"></div>
 
             <img
@@ -160,21 +165,13 @@
               alt="Soham chibi avatar"
               class="hero-avatar"
             />
-
-            <span class="hero-chip chip-python">Python</span>
-            <span class="hero-chip chip-knime">KNIME</span>
-            <span class="hero-chip chip-llm">LLMs</span>
-            <span class="hero-chip chip-dash">Dash</span>
-            <span class="hero-chip chip-cloud">Cloud</span>
           </div>
 
+          <!-- Signal card: separated from avatar -->
           <div class="signal-card tilt-card">
             <p class="signal-kicker">Portfolio Signal</p>
 
-            <div class="signal-header-row">
-              <h2>Data Analyst</h2>
-              <span class="signal-badge">AI Builder</span>
-            </div>
+            <h2>Data Analyst</h2>
 
             <p>
               AI, analytics, automation, and audit technology — shaped into usable products.
@@ -206,6 +203,13 @@
               </div>
             </div>
           </div>
+
+          <!-- Floating chips -->
+          <span class="hero-chip chip-python">Python</span>
+          <span class="hero-chip chip-knime">KNIME</span>
+          <span class="hero-chip chip-llm">LLMs</span>
+          <span class="hero-chip chip-dash">Dash</span>
+          <span class="hero-chip chip-cloud">Cloud</span>
 
         </div>
 
@@ -539,9 +543,6 @@
     </div>
   </footer>
 
-  <script src="./app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
-``
-
-  <title>Soham Banarase | Data Analyst & AI Builder</title>
