@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+
+<html class="dark scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Soham Banarase | Data Analyst</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "secondary-container": "#46464b",
+                "on-tertiary-container": "#282a2a",
+                "surface-border": "#ffffff1a",
+                "primary": "#adc6ff",
+                "on-primary-container": "#00285c",
+                "surface-container-highest": "#353534",
+                "on-surface-variant": "#c1c6d7",
+                "on-tertiary": "#2f3131",
+                "surface-container-high": "#2a2a2a",
+                "on-surface": "#e5e2e1",
+                "primary-fixed-dim": "#adc6ff",
+                "tertiary-fixed": "#e2e2e2",
+                "on-tertiary-fixed": "#1a1c1c",
+                "on-primary-fixed-variant": "#004493",
+                "surface-container-lowest": "#0e0e0e",
+                "error": "#ffb4ab",
+                "background": "#131313",
+                "on-error-container": "#ffdad6",
+                "surface-dim": "#131313",
+                "tertiary-fixed-dim": "#c6c6c7",
+                "surface-bright": "#3a3939",
+                "surface-container": "#201f1f",
+                "secondary": "#c6c6cb",
+                "secondary-fixed-dim": "#c6c6cb",
+                "on-tertiary-fixed-variant": "#454747",
+                "on-secondary-fixed-variant": "#46464b",
+                "on-primary-fixed": "#001a41",
+                "on-primary": "#002e69",
+                "surface-tint": "#adc6ff",
+                "on-background": "#e5e2e1",
+                "primary-fixed": "#d8e2ff",
+                "on-secondary": "#2f3034",
+                "outline-variant": "#414755",
+                "on-error": "#690005",
+                "inverse-on-surface": "#313030",
+                "surface-container-low": "#1c1b1b",
+                "inverse-surface": "#e5e2e1",
+                "outline": "#8b90a0",
+                "tertiary-container": "#909191",
+                "error-container": "#93000a",
+                "secondary-fixed": "#e3e2e7",
+                "on-secondary-container": "#b5b4ba",
+                "surface-variant": "#353534",
+                "primary-container": "#4b8eff",
+                "background-pure": "#000000",
+                "tertiary": "#c6c6c7",
+                "inverse-primary": "#005bc1",
+                "surface": "#131313",
+                "electric-glow": "rgba(0, 122, 255, 0.15)",
+                "on-secondary-fixed": "#1a1b1f"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "section-padding": "120px",
+                "unit": "8px",
+                "gutter": "24px",
+                "margin-mobile": "20px",
+                "container-max": "1200px"
+        },
+        "fontFamily": {
+                "label-sm": [
+                        "Inter"
+                ],
+                "headline-lg-mobile": [
+                        "Inter"
+                ],
+                "headline-lg": [
+                        "Inter"
+                ],
+                "label-md": [
+                        "Inter"
+                ],
+                "headline-xl": [
+                        "Inter"
+                ],
+                "headline-md": [
+                        "Inter"
+                ],
+                "body-md": [
+                        "Inter"
+                ],
+                "body-lg": [
+                        "Inter"
+                ]
+        },
+        "fontSize": {
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "28px",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-xl": [
+                        "48px",
+                        {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "1.3",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-surface');
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .glass-panel {
+            background: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid theme('colors.surface-border');
+        }
+
+        .glow-effect {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .glow-effect:hover {
+            box-shadow: 0 0 30px theme('colors.electric-glow');
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px) scale(1.01);
+        }
+        
+        /* Custom scrollbar for a sleek look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: theme('colors.background'); 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.surface-variant'); 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: theme('colors.outline'); 
+        }
+
+        /* Animation Classes */
+        @media (prefers-reduced-motion: no-preference) {
+            .reveal {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .reveal.active {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            .reveal-delay-1 { transition-delay: 0.1s; }
+            .reveal-delay-2 { transition-delay: 0.2s; }
+            .reveal-delay-3 { transition-delay: 0.3s; }
+            .reveal-delay-4 { transition-delay: 0.4s; }
+
+            .stagger-reveal span {
+                display: inline-block;
+                opacity: 0;
+                transform: translateY(20px);
+                animation: staggerUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            }
+
+            @keyframes staggerUp {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes pulse {
+                0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(173,198,255,0.7); }
+                70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(173,198,255,0); }
+                100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(173,198,255,0); }
+            }
+
+            .timeline-point:hover {
+                animation: pulse 1.5s infinite;
+            }
+            
+            .shimmer-btn {
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .shimmer-btn::after {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%);
+                transform: rotate(30deg) translateY(-100%);
+                transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            
+            .shimmer-btn:hover::after {
+                transform: rotate(30deg) translateY(100%);
+            }
+            
+            .skill-tag {
+                transition: all 0.3s ease;
+            }
+            .skill-tag:hover {
+                transform: translateY(-2px);
+                background-color: theme('colors.primary');
+                color: theme('colors.on-primary');
+                border-color: theme('colors.primary');
+            }
+        }
+    </style>
+</head>
+<body class="relative min-h-screen selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- Ambient Background -->
+<div class="fixed inset-0 pointer-events-none z-[-1] overflow-hidden" id="parallax-bg">
+<div class="absolute inset-0 bg-background-pure"></div>
+<canvas class="absolute inset-0 w-full h-full opacity-30 transition-transform duration-100 ease-out" id="network-canvas" style="transform: scale(1.1);"></canvas>
+<!-- Subtle primary glow in top left -->
+<div class="absolute top-0 left-0 w-[800px] h-[800px] bg-electric-glow rounded-full blur-[120px] opacity-30 transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-100 ease-out" id="glow-bg"></div>
+</div>
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-surface-border transition-all duration-300">
+<div class="flex justify-between items-center px-8 py-4 max-w-container-max mx-auto">
+<a class="font-headline-md text-headline-md font-bold text-on-surface tracking-tighter hover:text-primary transition-colors" href="#">
+                Soham Banarase
+            </a>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md cursor-pointer transition-all active:scale-95" href="#about">About</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 cursor-pointer active:scale-95" href="#experience">Experience</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 cursor-pointer active:scale-95" href="#projects">Projects</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 cursor-pointer active:scale-95" href="#contact">Contact</a>
+</div>
+<a class="hidden md:flex items-center justify-center px-6 py-2 bg-inverse-primary text-white font-label-md text-label-md rounded-full hover:bg-primary-container hover:text-on-primary-container transition-all duration-300 shimmer-btn hover:shadow-lg hover:shadow-primary/20 active:scale-95" href="#">
+                Resume
+            </a>
+<!-- Mobile Menu Button -->
+<button class="md:hidden text-on-surface p-2 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-[100px]"> <!-- Padding to clear fixed nav -->
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center justify-center py-section-padding px-gutter md:px-8 max-w-container-max mx-auto reveal" id="about">
+<div class="flex flex-col items-center text-center z-10 max-w-3xl">
+<h1 class="font-headline-xl text-headline-xl md:text-[72px] md:leading-[1.1] mb-6 text-on-surface tracking-tighter stagger-reveal" id="hero-headline">
+<!-- Filled by JS -->
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl reveal reveal-delay-2">
+                    What I love about data is that it's never really about the numbers. It's about the questions they help you ask and the decisions they make clearer. As a Data Analyst in Internal Audit at DHL, I get to work at the intersection of data analytics, cloud technologies, and audit, helping teams spot what matters and act on it. My background is in Artificial Intelligence (M.Sc., FAU Erlangen-Nürnberg) and software development, but what keeps me going is the collaborative side, working with smart people on problems that actually mean something.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto reveal reveal-delay-3">
+<a class="px-8 py-4 bg-inverse-primary text-white font-label-md text-label-md rounded-full hover:bg-primary-container hover:text-on-primary-container transition-all duration-300 text-center flex items-center justify-center gap-2 shimmer-btn hover:shadow-lg hover:shadow-primary/20 active:scale-95 group" href="#projects">
+                        View My Work
+                        <span class="material-symbols-outlined text-[18px] group-hover:translate-y-1 transition-transform duration-300">arrow_downward</span>
+</a>
+<a class="px-8 py-4 bg-transparent border border-surface-border text-on-surface font-label-md text-label-md rounded-full hover:bg-surface-container-high hover:border-surface-variant transition-all duration-300 text-center active:scale-95" href="#contact">
+                        Get in Touch
+                    </a>
+</div>
+</div>
+</section>
+<!-- Experience Section -->
+<section class="py-section-padding px-gutter md:px-8 max-w-container-max mx-auto" id="experience">
+<div class="mb-16 reveal">
+<h2 class="font-headline-lg text-headline-lg md:font-headline-lg-mobile md:text-headline-lg-mobile text-on-surface mb-4">Experience</h2>
+<div class="w-12 h-1 bg-primary rounded-full transition-all duration-500 hover:w-24"></div>
+</div>
+<div class="relative pl-8 md:pl-0">
+<!-- Timeline Line -->
+<div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-surface-border transform md:-translate-x-1/2"></div>
+<!-- Experience Item 1 -->
+<div class="relative mb-16 md:w-1/2 md:pr-12 ml-auto md:ml-0 group reveal">
+<div class="absolute left-[-32px] md:right-[-6px] md:left-auto top-1.5 w-3 h-3 bg-primary rounded-full shadow-[0_0_10px_rgba(173,198,255,0.5)] z-10 timeline-point transition-all duration-300"></div>
+<div class="glass-panel p-8 rounded-xl transition-all duration-300 hover:border-primary/50 relative hover:-translate-y-1 hover:shadow-xl hover:shadow-black/50">
+<span class="inline-block font-label-sm text-label-sm text-primary mb-2">August 2025 - Present</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1 group-hover:text-primary transition-colors">Auditor Data Analytics</h3>
+<h4 class="font-body-md text-body-md text-on-surface-variant mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">business</span> DHL Corporate Audit
+                        </h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Supporting DHL's Internal Audit function by turning complex data into tools, insights, and workflows that help teams work smarter and faster. Building interactive web applications in Dash, designing pipelines in KNIME, and fine-tuning LLMs.
+                        </p>
+</div>
+</div>
+<!-- Experience Item 2 -->
+<div class="relative mb-16 md:w-1/2 md:pl-12 ml-auto md:ml-auto group reveal">
+<div class="absolute left-[-32px] md:left-[-6px] top-1.5 w-3 h-3 bg-surface-variant rounded-full border border-surface-border z-10 group-hover:bg-primary transition-all duration-300 timeline-point"></div>
+<div class="glass-panel p-8 rounded-xl transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/50">
+<span class="inline-block font-label-sm text-label-sm text-on-surface-variant mb-2 group-hover:text-primary transition-colors">April 2025 - April 2025</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1 group-hover:text-primary transition-colors">AI Software Engineer</h3>
+<h4 class="font-body-md text-body-md text-on-surface-variant mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">local_cafe</span> Red Bull
+                        </h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+</p>
+</div>
+</div>
+<!-- Experience Item 3 -->
+<div class="relative mb-16 md:w-1/2 md:pr-12 ml-auto md:ml-0 group reveal">
+<div class="absolute left-[-32px] md:right-[-6px] md:left-auto top-1.5 w-3 h-3 bg-surface-variant rounded-full border border-surface-border z-10 group-hover:bg-primary transition-all duration-300 timeline-point"></div>
+<div class="glass-panel p-8 rounded-xl transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/50">
+<span class="inline-block font-label-sm text-label-sm text-on-surface-variant mb-2 group-hover:text-primary transition-colors">September 2023 - April 2025</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1 group-hover:text-primary transition-colors">Cloud Software Engineer (AI &amp; Data Mesh)</h3>
+<h4 class="font-body-md text-body-md text-on-surface-variant mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">precision_manufacturing</span> Siemens
+                        </h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Optimized LLMs to generate APIs within a data mesh architecture, developed cloud-native AI solutions, and led full-stack integration.
+                        </p>
+</div>
+</div>
+<!-- Experience Item 4 -->
+<div class="relative mb-16 md:w-1/2 md:pl-12 ml-auto md:ml-auto group reveal">
+<div class="absolute left-[-32px] md:left-[-6px] top-1.5 w-3 h-3 bg-surface-variant rounded-full border border-surface-border z-10 group-hover:bg-primary transition-all duration-300 timeline-point"></div>
+<div class="glass-panel p-8 rounded-xl transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/50">
+<span class="inline-block font-label-sm text-label-sm text-on-surface-variant mb-2 group-hover:text-primary transition-colors">April 2022 - January 2023</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1 group-hover:text-primary transition-colors">Web Application Development</h3>
+<h4 class="font-body-md text-body-md text-on-surface-variant mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">local_hospital</span> Evonext Healthcare
+                        </h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Designed and implemented a ReactJS-based web application, built responsive UIs, and optimized backend APIs.
+                        </p>
+</div>
+</div>
+<!-- Experience Item 5 -->
+<div class="relative mb-16 md:w-1/2 md:pr-12 ml-auto md:ml-0 group reveal">
+<div class="absolute left-[-32px] md:right-[-6px] md:left-auto top-1.5 w-3 h-3 bg-surface-variant rounded-full border border-surface-border z-10 group-hover:bg-primary transition-all duration-300 timeline-point"></div>
+<div class="glass-panel p-8 rounded-xl transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/50">
+<span class="inline-block font-label-sm text-label-sm text-on-surface-variant mb-2 group-hover:text-primary transition-colors">June 2021 - June 2021</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1 group-hover:text-primary transition-colors">Engineering Intern</h3>
+<h4 class="font-body-md text-body-md text-on-surface-variant mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">analytics</span> KPMG
+                        </h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Assessed data quality and developed dashboards to target high-value customers.
+                        </p>
+</div>
+</div>
+<!-- Experience Item 6 -->
+<div class="relative mb-16 md:w-1/2 md:pl-12 ml-auto md:ml-auto group reveal">
+<div class="absolute left-[-32px] md:left-[-6px] top-1.5 w-3 h-3 bg-surface-variant rounded-full border border-surface-border z-10 group-hover:bg-primary transition-all duration-300 timeline-point"></div>
+<div class="glass-panel p-8 rounded-xl transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/50">
+<span class="inline-block font-label-sm text-label-sm text-on-surface-variant mb-2 group-hover:text-primary transition-colors">July 2020 - August 2020</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1 group-hover:text-primary transition-colors">Web/App Development Intern</h3>
+<h4 class="font-body-md text-body-md text-on-surface-variant mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">devices</span> TRIOCLUST
+                        </h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Developed full-stack web applications using ReactJS, Node.js, and Express.js.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Projects Section -->
+<section class="py-section-padding px-gutter md:px-8 max-w-container-max mx-auto" id="projects">
+<div class="mb-16 reveal">
+<h2 class="font-headline-lg text-headline-lg md:font-headline-lg-mobile md:text-headline-lg-mobile text-on-surface mb-4">Featured Projects</h2>
+<div class="w-12 h-1 bg-primary rounded-full transition-all duration-500 hover:w-24"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Project 1 -->
+<div class="glass-panel rounded-xl overflow-hidden flex flex-col group glow-effect transition-all duration-400 cursor-pointer reveal reveal-delay-1">
+<div class="h-48 w-full bg-surface-container-high relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] to-transparent z-10 opacity-80 group-hover:opacity-60 transition-opacity duration-300"></div>
+<img alt="Abstract representation of text-to-image AI" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out" data-alt="A highly detailed conceptual image representing vision and language artificial intelligence. A glowing, complex neural network overlaying an abstract digital canvas with streams of text transforming into vivid, surreal geometric structures. The aesthetic is deep dark mode with striking electric blue and cyan accents, conveying advanced computation and precise digital artistry." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANhX-FhEPFBuxyn8ny50B8fg7O6AFddr9pFKlY4c8iMCn-IGsLGKDsbg5O_-6t55VCKmFB7YtO-07iTSPp3FlQuB1wg3Bcg0PFMOu6cJAOgCsgQinFQxOmXJH5AkKUlM1E4VuggeSf97ZROECCbiqT5o5JSt1rLW2JaY4oqPaeiVNY_IRSFcT1Vhvxp297cPG1jl4ju8fhawIlojTna5X0epPPy9LXMFYDfZ_8_cg2vuSzCY-lc-WgbGUeAycVF59e7uETpzB8VllQ"/>
+</div>
+<div class="p-6 flex-grow flex flex-col relative z-20">
+<div class="flex items-center gap-2 mb-3">
+<div class="w-2 h-2 rounded-full bg-primary group-hover:animate-pulse"></div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">AI Research</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3 line-clamp-2 group-hover:text-primary transition-colors duration-300">Visio-Linguistic Analysis of Text-to-Image AI</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow line-clamp-3">
+                            Comprehensive evaluation of multi-modal AI models focusing on alignment between textual prompts and generated visual outputs using advanced metric evaluation.
+                        </p>
+<div class="flex flex-wrap gap-2 mt-auto">
+<span class="px-3 py-1 bg-surface-container rounded-full font-label-sm text-label-sm text-on-surface-variant border border-surface-border skill-tag">Python</span>
+<span class="px-3 py-1 bg-surface-container rounded-full font-label-sm text-label-sm text-on-surface-variant border border-surface-border skill-tag">PyTorch</span>
+</div>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="glass-panel rounded-xl overflow-hidden flex flex-col group glow-effect transition-all duration-400 cursor-pointer reveal reveal-delay-2">
+<div class="h-48 w-full bg-surface-container-high relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] to-transparent z-10 opacity-80 group-hover:opacity-60 transition-opacity duration-300"></div>
+<img alt="Surgical robotics lab" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out" data-alt="A sleek, modern surgical robotic arm in a dimly lit, high-tech laboratory environment. The metallic surfaces of the robot reflect subtle blue and white LED lights, emphasizing precision and medical technology. The scene is rendered in a premium dark mode aesthetic, with deep blacks and stark contrasts, highlighting the intersection of healthcare and advanced machine learning." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCS--7GuhweoPkqd85Ptv7LK-TKRxzPu2hRV9UrqbNHcyiXr8YJd_wQ_0mfge4NFJl2KLeZNjHPY76CHGiLl5e9R54SB-2gDySDK_ghDazcIlbH2Gt2GxLWKzeipb-2oTaYFXHUjB4llvuXshfSF5cLgbDOXpXeiVap7NJiHn01uhxsu7C5zjyLOz3XjuG-JOP_OdTJsXm095sCoiHYpEnOylwf-fEQh7yyNl-mArNxTv7znrpvGI9wMEukru3Uk3wgNS9LZKvYjTsi"/>
+</div>
+<div class="p-6 flex-grow flex flex-col relative z-20">
+<div class="flex items-center gap-2 mb-3">
+<div class="w-2 h-2 rounded-full bg-primary group-hover:animate-pulse"></div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">Robotics &amp; Vision</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3 line-clamp-2 group-hover:text-primary transition-colors duration-300">AI-Based Navigation of Surgical Robot</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow line-clamp-3">
+                            Developed an intelligent navigation system utilizing computer vision to enhance precision and autonomy of robotic systems in simulated surgical environments.
+                        </p>
+<div class="flex flex-wrap gap-2 mt-auto">
+<span class="px-3 py-1 bg-surface-container rounded-full font-label-sm text-label-sm text-on-surface-variant border border-surface-border skill-tag">OpenCV</span>
+<span class="px-3 py-1 bg-surface-container rounded-full font-label-sm text-label-sm text-on-surface-variant border border-surface-border skill-tag">ROS</span>
+</div>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="glass-panel rounded-xl overflow-hidden flex flex-col group glow-effect transition-all duration-400 cursor-pointer reveal reveal-delay-3">
+<div class="h-48 w-full bg-surface-container-high relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] to-transparent z-10 opacity-80 group-hover:opacity-60 transition-opacity duration-300"></div>
+<img alt="Data dashboard interface" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out" data-alt="A modern, dark-themed digital dashboard displaying complex clinical trial data. Glowing charts, graphs, and metric indicators populate a sleek glassmorphic interface set against a deep charcoal background. The data visualizations are accented with sharp electric blues and crisp whites, representing a clean, professional, and data-dense clinical application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAusxf2kbFZyiv_fTzAGZ4FEyA9uehDXGz0D1wj1IIm62av9wId99YLI2Nu0Jsa8-dqwLkh0BQdokG-Xq0PPya8ii6-GQhl56RSJ7lHyldEinMg-Of6ZsjJ-ocZhW-I5VjICKP_dF7zXXDNWGnUto8Mcku8ukey4I9xN9nSHtKdIbLEZV6fXaMoWoReO92zYHr3ZT5GEk9O96WKhxiZyu0lg1fQ2RnYh2qV8urWx2bjAWlYrCR0HlA6UgSiMbks0UPg9URzvEdBV-qZ"/>
+</div>
+<div class="p-6 flex-grow flex flex-col relative z-20">
+<div class="flex items-center gap-2 mb-3">
+<div class="w-2 h-2 rounded-full bg-primary group-hover:animate-pulse"></div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">Full-Stack App</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3 line-clamp-2 group-hover:text-primary transition-colors duration-300">Smart India Hackathon: Clinical Trials Web App</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow line-clamp-3">
+                            Award-winning platform built to streamline and manage clinical trial data securely, featuring real-time analytics and a robust patient tracking system.
+                        </p>
+<div class="flex flex-wrap gap-2 mt-auto">
+<span class="px-3 py-1 bg-surface-container rounded-full font-label-sm text-label-sm text-on-surface-variant border border-surface-border skill-tag">React</span>
+<span class="px-3 py-1 bg-surface-container rounded-full font-label-sm text-label-sm text-on-surface-variant border border-surface-border skill-tag">Node.js</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Skills Section -->
+<section class="py-section-padding px-gutter md:px-8 max-w-container-max mx-auto">
+<div class="mb-16 reveal">
+<h2 class="font-headline-lg text-headline-lg md:font-headline-lg-mobile md:text-headline-lg-mobile text-on-surface mb-4">Digital Skills</h2>
+<div class="w-12 h-1 bg-primary rounded-full transition-all duration-500 hover:w-24"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- AI/ML -->
+<div class="glass-panel p-8 rounded-xl reveal reveal-delay-1 hover:-translate-y-2 transition-transform duration-300 group">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6 flex items-center gap-3 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-primary transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110">psychology</span>
+                        AI &amp; ML
+                    </h3>
+<div class="flex flex-wrap gap-3">
+<span class="px-4 py-2 bg-surface-container-high rounded-full font-label-md text-label-md text-on-surface border border-surface-border skill-tag">Computer Vision</span>
+<span class="px-4 py-2 bg-surface-container-high rounded-full font-label-md text-label-md text-on-surface border border-surface-border skill-tag">PyTorch</span>
+</div>
+</div>
+<!-- Cloud & Data Mesh -->
+<div class="glass-panel p-8 rounded-xl reveal reveal-delay-2 hover:-translate-y-2 transition-transform duration-300 group">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6 flex items-center gap-3 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-primary transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110">cloud</span>
+                        Cloud &amp; Data Mesh
+                    </h3>
+<div class="flex flex-wrap gap-3">
+<span class="px-4 py-2 bg-surface-container-high rounded-full font-label-md text-label-md text-on-surface border border-surface-border skill-tag">AWS</span>
+<span class="px-4 py-2 bg-surface-container-high rounded-full font-label-md text-label-md text-on-surface border border-surface-border skill-tag">Docker</span>
+</div>
+</div>
+<!-- Data Analytics -->
+<div class="glass-panel p-8 rounded-xl reveal reveal-delay-3 hover:-translate-y-2 transition-transform duration-300 group">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6 flex items-center gap-3 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-primary transition-transform duration-300 group-hover:scale-110">analytics</span>
+                        Data Analytics
+                    </h3>
+<div class="flex flex-wrap gap-3">
+<span class="px-4 py-2 bg-surface-container-high rounded-full font-label-md text-label-md text-on-surface border border-surface-border skill-tag">Data Mining</span>
+<span class="px-4 py-2 bg-surface-container-high rounded-full font-label-md text-label-md text-on-surface border border-surface-border skill-tag">KNIME</span>
+<span class="px-4 py-2 bg-surface-container-high rounded-full font-label-md text-label-md text-on-surface border border-surface-border skill-tag">Dash</span>
+</div>
+</div>
+<!-- Other Tools -->
+<div class="glass-panel p-8 rounded-xl reveal reveal-delay-4 hover:-translate-y-2 transition-transform duration-300 group">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6 flex items-center gap-3 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-primary transition-transform duration-300 group-hover:rotate-45 group-hover:scale-110">build</span>
+                        Other Tools
+                    </h3>
+<div class="flex flex-wrap gap-3">
+<span class="px-4 py-2 bg-surface-container-high rounded-full font-label-md text-label-md text-on-surface border border-surface-border skill-tag">React.js</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Certifications & Honors -->
+<section class="py-section-padding px-gutter md:px-8 max-w-container-max mx-auto">
+<div class="mb-16 reveal">
+<h2 class="font-headline-lg text-headline-lg md:font-headline-lg-mobile md:text-headline-lg-mobile text-on-surface mb-4">Certifications &amp; Honors</h2>
+<div class="w-12 h-1 bg-primary rounded-full transition-all duration-500 hover:w-24"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="glass-panel p-8 rounded-xl reveal reveal-delay-1 hover:border-primary/50 transition-colors duration-300 cursor-default">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Android &amp; Firebase ML Kit in Java</h3>
+</div>
+<div class="glass-panel p-8 rounded-xl reveal reveal-delay-2 hover:border-primary/50 transition-colors duration-300 cursor-default">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Microsoft AI Classroom Series</h3>
+</div>
+<div class="glass-panel p-8 rounded-xl reveal reveal-delay-3 hover:border-primary/50 transition-colors duration-300 cursor-default">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">TCS Certified in Communication Skills</h3>
+</div>
+<div class="glass-panel p-8 rounded-xl reveal reveal-delay-4 hover:border-primary/50 transition-colors duration-300 cursor-default">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Smart India Hackathon Finalist</h3>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-surface-border bg-background mt-section-padding" id="contact">
+<div class="flex flex-col md:flex-row justify-between items-center py-gutter px-margin-mobile max-w-container-max mx-auto gap-6 reveal">
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface text-center md:text-left">
+<span class="block text-primary mb-1">Let's Connect</span>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="mailto:sohambanarase1999@gmail.com">sohambanarase1999@gmail.com</a>
+</div>
+<div class="flex gap-6">
+<a class="text-on-secondary-container hover:text-primary transition-all hover:-translate-y-1 duration-300 font-label-md text-label-md flex items-center gap-1" href="https://linkedin.com/in/sohambanarase">
+                    LinkedIn
+                </a>
+<a class="text-on-secondary-container hover:text-primary transition-all hover:-translate-y-1 duration-300 font-label-md text-label-md flex items-center gap-1" href="https://github.com/sohambanarase">
+                    GitHub
+                </a>
+</div>
+<div class="font-body-md text-body-md text-on-secondary-container text-center md:text-right">
+                © 2024 Soham Banarase. Built for Digital Precision.
+            </div>
+</div>
+</footer>
+<script>
+    // Prefers Reduced Motion Check
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Staggered Text Reveal for Hero
+    const heroText = `Hello, I'm <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-inverse-primary">Soham Banarase</span><br><span class="text-3xl md:text-5xl text-on-surface-variant font-normal">Data Analyst | Master's AI</span>`;
+    const headlineElement = document.getElementById('hero-headline');
+    
+    if (!prefersReducedMotion) {
+        // Simple word-based stagger for the main greeting to keep it clean
+        headlineElement.innerHTML = `
+            <span>Hello,</span> <span>I'm</span> <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-inverse-primary" style="animation-delay: 0.2s">Soham</span> 
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-inverse-primary" style="animation-delay: 0.3s">Banarase</span><br>
+            <span class="text-3xl md:text-5xl text-on-surface-variant font-normal" style="animation-delay: 0.4s">Data Analyst | Master's AI</span>
+        `;
+    } else {
+        headlineElement.innerHTML = heroText;
+    }
+
+    // Intersection Observer for scroll animations
+    if (!prefersReducedMotion) {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -100px 0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach((element) => {
+            observer.observe(element);
+        });
+    } else {
+        // If reduced motion is preferred, immediately show all elements
+        document.querySelectorAll('.reveal').forEach((element) => {
+            element.style.opacity = '1';
+            element.style.transform = 'none';
+        });
+    }
+
+    // Parallax Background Effect
+    if (!prefersReducedMotion) {
+        const canvasEl = document.getElementById('network-canvas');
+        const glowEl = document.getElementById('glow-bg');
+        
+        document.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX / window.innerWidth - 0.5;
+            const mouseY = e.clientY / window.innerHeight - 0.5;
+            
+            requestAnimationFrame(() => {
+                // Subtle movement (scale keeps it from showing edges)
+                canvasEl.style.transform = `scale(1.1) translate(${mouseX * -20}px, ${mouseY * -20}px)`;
+                glowEl.style.transform = `translate(calc(-50% + ${mouseX * -40}px), calc(-50% + ${mouseY * -40}px))`;
+            });
+        });
+    }
+
+    // Network Canvas Animation
+    const canvas = document.getElementById('network-canvas');
+    const ctx = canvas.getContext('2d');
+    
+    let particlesArray;
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    class Particle {
+        constructor(x, y, directionX, directionY, size, color) {
+            this.x = x;
+            this.y = y;
+            this.directionX = directionX;
+            this.directionY = directionY;
+            this.size = size;
+            this.color = color;
+        }
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+            ctx.fillStyle = '#adc6ff';
+            ctx.fill();
+        }
+        update() {
+            if (this.x > canvas.width || this.x < 0) {
+                this.directionX = -this.directionX;
+            }
+            if (this.y > canvas.height || this.y < 0) {
+                this.directionY = -this.directionY;
+            }
+            this.x += this.directionX;
+            this.y += this.directionY;
+            this.draw();
+        }
+    }
+
+    function init() {
+        particlesArray = [];
+        let numberOfParticles = (canvas.height * canvas.width) / 15000;
+        for (let i = 0; i < numberOfParticles; i++) {
+            let size = (Math.random() * 2) + 1;
+            let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
+            let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
+            let directionX = (Math.random() * 0.5) - 0.25;
+            let directionY = (Math.random() * 0.5) - 0.25;
+            let color = '#adc6ff';
+            particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+        }
+    }
+
+    function connect() {
+        let opacityValue = 1;
+        for (let a = 0; a < particlesArray.length; a++) {
+            for (let b = a; b < particlesArray.length; b++) {
+                let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) + 
+                               ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+                if (distance < (canvas.width / 7) * (canvas.height / 7)) {
+                    opacityValue = 1 - (distance / 20000);
+                    ctx.strokeStyle = 'rgba(173,198,255,' + opacityValue + ')';
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                    ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                    ctx.stroke();
+                }
+            }
+        }
+    }
+
+    function animate() {
+        if(!prefersReducedMotion) {
+            requestAnimationFrame(animate);
+            ctx.clearRect(0, 0, innerWidth, innerHeight);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+            }
+            connect();
+        } else {
+            // Static rendering for reduced motion
+            ctx.clearRect(0, 0, innerWidth, innerHeight);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].draw();
+            }
+            connect();
+        }
+    }
+
+    window.addEventListener('resize', function() {
+        canvas.width = innerWidth;
+        canvas.height = innerHeight;
+        init();
+        if(prefersReducedMotion) {
+            animate(); // Redraw once on resize
+        }
+    });
+
+    init();
+    animate();
+</script>
+</body></html>
