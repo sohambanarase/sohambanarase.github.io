@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" class="dark scroll-smooth">
 <head>
-  <meta="width=device-width, initial-scale=1.0" />  <meta charset="UTF-8" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Soham Banarase | Data Analyst & AI Builder</title>
   <meta name="description" content="Portfolio of Soham Banarase — Data Analyst, AI Engineer, and builder of intelligent data products." />
@@ -40,14 +41,10 @@
 
 <body class="font-inter bg-ink text-text overflow-x-hidden selection:bg-cyan selection:text-ink">
 
-  <!-- Custom cursor -->
   <div id="cursor-dot"></div>
   <div id="cursor-ring"></div>
-
-  <!-- Scroll progress -->
   <div id="scroll-progress"></div>
 
-  <!-- Background -->
   <div class="fixed inset-0 -z-50 overflow-hidden">
     <canvas id="constellation-canvas"></canvas>
     <div class="aurora aurora-one"></div>
@@ -56,7 +53,6 @@
     <div class="noise-layer"></div>
   </div>
 
-  <!-- Navigation -->
   <nav id="navbar" class="fixed top-0 left-0 right-0 z-40 border-b border-white/10 bg-ink/60 backdrop-blur-2xl">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
       <a href="#home" class="group flex items-center gap-3">
@@ -93,11 +89,9 @@
 
   <main>
 
-    <!-- Hero -->
     <section id="home" class="relative min-h-screen px-5 pt-28 md:px-8">
       <div class="mx-auto grid min-h-[calc(100vh-7rem)] max-w-7xl items-center gap-14 py-12 lg:grid-cols-[1.02fr_0.98fr]">
 
-        <!-- Hero Text -->
         <div class="reveal relative z-10">
           <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-soft backdrop-blur-xl">
             <span class="relative flex h-2.5 w-2.5">
@@ -123,6 +117,7 @@
               View Featured Work
               <span class="material-symbols-outlined text-[19px]">arrow_downward</span>
             </a>
+
             <a href="mailto:sohambanarase1999@gmail.com" class="magnetic-btn secondary-btn">
               Let’s Connect
               <span class="material-symbols-outlined text-[19px]">north_east</span>
@@ -145,33 +140,32 @@
           </div>
         </div>
 
-        <!-- Hero Visual -->
         <div class="hero-stage reveal reveal-delay-2">
 
-          <!-- Decorative orbit rings -->
+          <div class="hero-aura"></div>
           <div class="hero-orbit hero-orbit-one"></div>
           <div class="hero-orbit hero-orbit-two"></div>
           <div class="hero-orbit hero-orbit-three"></div>
 
-          <!-- Ambient glow -->
-          <div class="hero-aura"></div>
-
-          <!-- Avatar image: main visual, fully visible -->
-          <div class="avatar-shell tilt-card">
+          <div class="avatar-zone tilt-card">
             <div class="avatar-platform-glow"></div>
 
-            <img
-              src="./me.png"
-              alt="Soham chibi avatar"
-              class="hero-avatar"
-            />
+            ./me.png
+
+            <span class="hero-chip chip-python">Python</span>
+            <span class="hero-chip chip-knime">KNIME</span>
+            <span class="hero-chip chip-llm">LLMs</span>
+            <span class="hero-chip chip-dash">Dash</span>
+            <span class="hero-chip chip-cloud">Cloud</span>
           </div>
 
-          <!-- Signal card: separated from avatar -->
           <div class="signal-card tilt-card">
             <p class="signal-kicker">Portfolio Signal</p>
 
-            <h2>Data Analyst</h2>
+            <div class="signal-header-row">
+              <h2>Data Analyst</h2>
+              <span class="signal-badge">AI Builder</span>
+            </div>
 
             <p>
               AI, analytics, automation, and audit technology — shaped into usable products.
@@ -204,19 +198,11 @@
             </div>
           </div>
 
-          <!-- Floating chips -->
-          <span class="hero-chip chip-python">Python</span>
-          <span class="hero-chip chip-knime">KNIME</span>
-          <span class="hero-chip chip-llm">LLMs</span>
-          <span class="hero-chip chip-dash">Dash</span>
-          <span class="hero-chip chip-cloud">Cloud</span>
-
         </div>
 
       </div>
     </section>
 
-    <!-- About -->
     <section id="about" class="section-shell">
       <div class="section-heading reveal">
         <p class="eyebrow">About</p>
@@ -264,7 +250,6 @@
       </div>
     </section>
 
-    <!-- Experience -->
     <section id="experience" class="section-shell">
       <div class="section-heading reveal">
         <p class="eyebrow">Experience</p>
@@ -359,7 +344,6 @@
       </div>
     </section>
 
-    <!-- Projects -->
     <section id="projects" class="section-shell">
       <div class="section-heading reveal">
         <p class="eyebrow">Featured Projects</p>
@@ -417,7 +401,6 @@
       </div>
     </section>
 
-    <!-- Skills -->
     <section id="skills" class="section-shell">
       <div class="section-heading reveal">
         <p class="eyebrow">Digital Skills</p>
@@ -467,7 +450,6 @@
       </div>
     </section>
 
-    <!-- Credentials -->
     <section class="section-shell">
       <div class="section-heading reveal">
         <p class="eyebrow">Credentials</p>
@@ -503,7 +485,6 @@
 
   </main>
 
-  <!-- Footer -->
   <footer id="contact" class="relative border-t border-white/10 px-5 py-16 md:px-8">
     <div class="mx-auto max-w-7xl">
       <div class="footer-card reveal">
