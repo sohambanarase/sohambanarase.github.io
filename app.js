@@ -1,36 +1,4 @@
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-/* Mobile menu */
-const mobileBtn = document.getElementById("mobile-menu-btn");
-const mobileMenu = document.getElementById("mobile-menu");
-
-mobileBtn?.addEventListener("click", () => {
-  mobileMenu.classList.toggle("hidden");
-});
-
-document.querySelectorAll("#mobile-menu a").forEach((link) => {
-  link.addEventListener("click", () => mobileMenu.classList.add("hidden"));
-});
-
-/* Cursor */
-const cursorDot = document.getElementById("cursor-dot");
-const cursorRing = document.getElementById("cursor-ring");
-
-let cursorX = 0;
-let cursorY = 0;
-let ringX = 0;
-let ringY = 0;
-
-if (!prefersReducedMotion && window.matchMedia("(min-width: 769px)").matches) {
-  window.addEventListener("mousemove", (event) => {
-    cursorX = event.clientX;
-    cursorY = event.clientY;
-
-    cursorDot.style.left = `${cursorX}px`;
-    cursorDot.style.top = `${cursorY}px`;
-  });
-
-  const animateCursor = () => {
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;const prefersReducedMotion = window.matchMedia("(prefers  const animateCursor = () => {
     ringX += (cursorX - ringX) * 0.17;
     ringY += (cursorY - ringY) * 0.17;
 
@@ -52,9 +20,12 @@ if (!prefersReducedMotion && window.matchMedia("(min-width: 769px)").matches) {
 const progress = document.getElementById("scroll-progress");
 
 function updateScrollProgress() {
+  if (!progress) return;
+
   const scrollTop = window.scrollY;
   const docHeight = document.documentElement.scrollHeight - window.innerHeight;
   const percentage = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+
   progress.style.width = `${percentage}%`;
 }
 
@@ -64,7 +35,7 @@ updateScrollProgress();
 /* Reveal animation */
 const revealElements = document.querySelectorAll(".reveal");
 
-if (!prefersReducedMotion) {
+if (!prefersReducedMotion && "IntersectionObserver" in window) {
   const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -89,23 +60,25 @@ if (!prefersReducedMotion) {
 const sections = document.querySelectorAll("section[id], footer[id]");
 const navLinks = document.querySelectorAll(".nav-link");
 
-const navObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
+if ("IntersectionObserver" in window) {
+  const navObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
 
-      navLinks.forEach((link) => link.classList.remove("active"));
+        navLinks.forEach((link) => link.classList.remove("active"));
 
-      const activeLink = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
-      activeLink?.classList.add("active");
-    });
-  },
-  {
-    threshold: 0.35
-  }
-);
+        const activeLink = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+        activeLink?.classList.add("active");
+      });
+    },
+    {
+      threshold: 0.35
+    }
+  );
 
-sections.forEach((section) => navObserver.observe(section));
+  sections.forEach((section) => navObserver.observe(section));
+}
 
 /* Magnetic buttons */
 document.querySelectorAll(".magnetic-btn").forEach((button) => {
@@ -146,7 +119,7 @@ document.querySelectorAll(".tilt-card").forEach((card) => {
 
 /* Constellation canvas */
 const canvas = document.getElementById("constellation-canvas");
-const ctx = canvas.getContext("2d");
+const ctx = canvas ? canvas.getContext("2d") : null;
 
 let width = 0;
 let height = 0;
@@ -158,6 +131,8 @@ let mouse = {
 };
 
 function resizeCanvas() {
+  if (!canvas || !ctx) return;
+
   const ratio = window.devicePixelRatio || 1;
   width = window.innerWidth;
   height = window.innerHeight;
@@ -174,7 +149,7 @@ function resizeCanvas() {
 function createParticles() {
   particles = [];
 
-  const particleCount = Math.min(110, Math.floor((width * height) / 13500));
+  const particleCount = Math.min(120, Math.floor((width * height) / 12000));
 
   for (let i = 0; i < particleCount; i++) {
     particles.push({
@@ -182,8 +157,8 @@ function createParticles() {
       y: Math.random() * height,
       baseX: Math.random() * width,
       baseY: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.22,
-      vy: (Math.random() - 0.5) * 0.22,
+      vx: (Math.random() - 0.5) * 0.25,
+      vy: (Math.random() - 0.5) * 0.25,
       size: Math.random() * 1.8 + 0.7,
       pulse: Math.random() * Math.PI * 2
     });
@@ -191,6 +166,8 @@ function createParticles() {
 }
 
 function drawParticles() {
+  if (!ctx) return;
+
   ctx.clearRect(0, 0, width, height);
 
   particles.forEach((p) => {
@@ -226,6 +203,8 @@ function drawParticles() {
 }
 
 function connectParticles() {
+  if (!ctx) return;
+
   for (let i = 0; i < particles.length; i++) {
     for (let j = i + 1; j < particles.length; j++) {
       const dx = particles[i].x - particles[j].x;
@@ -234,6 +213,7 @@ function connectParticles() {
 
       if (distance < 130) {
         const opacity = 1 - distance / 130;
+
         ctx.beginPath();
         ctx.moveTo(particles[i].x, particles[i].y);
         ctx.lineTo(particles[j].x, particles[j].y);
@@ -253,17 +233,52 @@ function animateCanvas() {
   }
 }
 
-window.addEventListener("resize", resizeCanvas);
+if (canvas && ctx) {
+  window.addEventListener("resize", resizeCanvas);
 
-window.addEventListener("mousemove", (event) => {
-  mouse.x = event.clientX;
-  mouse.y = event.clientY;
-});
+  window.addEventListener("mousemove", (event) => {
+    mouse.x = event.clientX;
+    mouse.y = event.clientY;
+  });
 
-window.addEventListener("mouseleave", () => {
-  mouse.x = null;
-  mouse.y = null;
-});
+  window.addEventListener("mouseleave", () => {
+    mouse.x = null;
+    mouse.y = null;
+  });
 
-resizeCanvas();
-animateCanvas();
+  resizeCanvas();
+  animateCanvas();
+}
+
+/* Mobile menu */
+const mobileBtn = document.getElementById("mobile-menu-btn");
+const mobileMenu = document.getElementById("mobile-menu");
+
+if (mobileBtn && mobileMenu) {
+  mobileBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+
+  document.querySelectorAll("#mobile-menu a").forEach((link) => {
+    link.addEventListener("click", () => mobileMenu.classList.add("hidden"));
+  });
+}
+
+/* Cursor */
+const cursorDot = document.getElementById("cursor-dot");
+const cursorRing = document.getElementById("cursor-ring");
+
+let cursorX = 0;
+let cursorY = 0;
+let ringX = 0;
+let ringY = 0;
+
+if (!prefersReducedMotion && window.matchMedia("(min-width: 769px)").matches && cursorDot && cursorRing) {
+  window.addEventListener("mousemove", (event) => {
+    cursorX = event.clientX;
+    cursorY = event.clientY;
+
+    cursorDot.style.left = `${cursorX}px`;
+    cursorDot.style.top = `${cursorY}px`;
+  });
+
