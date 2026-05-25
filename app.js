@@ -1,4 +1,6 @@
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;const prefersReducedMotion = window.match* Mobile menu */
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* Mobile menu */
 const mobileBtn = document.getElementById("mobile-menu-btn");
 const mobileMenu = document.getElementById("mobile-menu");
 
@@ -265,4 +267,3 @@ window.addEventListener("mouseleave", () => {
 
 resizeCanvas();
 animateCanvas();
-
