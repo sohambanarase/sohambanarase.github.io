@@ -1,6 +1,104 @@
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/* Mobile menu */
+/* ============ Preloader (boot sequence) ============ */
+const preloader = document.getElementById("preloader");
+const preloaderBar = document.getElementById("preloader-bar");
+const preloaderPercent = document.getElementById("preloader-percent");
+const preloaderStatus = document.getElementById("preloader-status");
+
+const bootMessages = [
+  "booting interface",
+  "loading models",
+  "calibrating pixels",
+  "rendering constellation",
+  "systems online"
+];
+
+function finishPreloader() {
+  document.body.classList.remove("is-loading");
+  preloader?.classList.add("done");
+
+  setTimeout(() => {
+    preloader?.classList.add("gone");
+    runDecodeEffect();
+  }, 760);
+}
+
+if (prefersReducedMotion || !preloader) {
+  document.body.classList.remove("is-loading");
+  preloader?.classList.add("gone");
+} else {
+  let progress = 0;
+  let messageIndex = 0;
+
+  const bootInterval = setInterval(() => {
+    progress = Math.min(100, progress + Math.random() * 14 + 5);
+
+    preloaderBar.style.width = `${progress}%`;
+    preloaderPercent.textContent = `${Math.floor(progress)}%`;
+
+    const nextIndex = Math.min(
+      bootMessages.length - 1,
+      Math.floor((progress / 100) * bootMessages.length)
+    );
+
+    if (nextIndex !== messageIndex) {
+      messageIndex = nextIndex;
+      preloaderStatus.textContent = bootMessages[messageIndex];
+    }
+
+    if (progress >= 100) {
+      clearInterval(bootInterval);
+      setTimeout(finishPreloader, 280);
+    }
+  }, 130);
+
+  /* Safety net: never trap the visitor behind the loader */
+  setTimeout(() => {
+    if (!preloader.classList.contains("done")) {
+      clearInterval(bootInterval);
+      finishPreloader();
+    }
+  }, 4500);
+}
+
+/* ============ Headline decode effect ============ */
+function runDecodeEffect() {
+  const target = document.getElementById("decode-text");
+  if (!target || prefersReducedMotion) return;
+
+  const original = target.textContent;
+  const glyphs = "ABCDEFGHIKLMNOPRSTUVXYZ<>/{}[]#%&*+=";
+  let frame = 0;
+
+  const tick = () => {
+    const settled = Math.floor((frame - 6) / 2);
+    let output = "";
+
+    for (let i = 0; i < original.length; i++) {
+      const char = original[i];
+
+      if (i < settled || char === " " || char === "," || char === ".") {
+        output += char;
+      } else {
+        output += glyphs[Math.floor(Math.random() * glyphs.length)];
+      }
+    }
+
+    target.textContent = output;
+    frame++;
+
+    if (settled < original.length) {
+      requestAnimationFrame(tick);
+    } else {
+      target.textContent = original;
+    }
+  };
+
+  tick();
+}
+
+/* ============ Mobile menu ============ */
 const mobileBtn = document.getElementById("mobile-menu-btn");
 const mobileMenu = document.getElementById("mobile-menu");
 
@@ -12,7 +110,7 @@ document.querySelectorAll("#mobile-menu a").forEach((link) => {
   link.addEventListener("click", () => mobileMenu.classList.add("hidden"));
 });
 
-/* Cursor */
+/* ============ Cursor ============ */
 const cursorDot = document.getElementById("cursor-dot");
 const cursorRing = document.getElementById("cursor-ring");
 
@@ -48,20 +146,74 @@ if (!prefersReducedMotion && window.matchMedia("(min-width: 769px)").matches) {
   });
 }
 
-/* Scroll progress */
+/* ============ Scroll progress + nav state + scroll cue ============ */
 const progress = document.getElementById("scroll-progress");
+const scrollCue = document.getElementById("scroll-cue");
 
 function updateScrollProgress() {
   const scrollTop = window.scrollY;
   const docHeight = document.documentElement.scrollHeight - window.innerHeight;
   const percentage = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
   progress.style.width = `${percentage}%`;
+
+  document.body.classList.toggle("scrolled", scrollTop > 24);
+
+  if (scrollCue) {
+    scrollCue.style.opacity = Math.max(0, 1 - scrollTop / 220);
+  }
 }
 
 window.addEventListener("scroll", updateScrollProgress, { passive: true });
 updateScrollProgress();
 
-/* Reveal animation */
+/* ============ Parallax + timeline draw (single rAF loop) ============ */
+const parallaxItems = document.querySelectorAll("[data-parallax]");
+const heroCopy = document.getElementById("hero-copy");
+const timeline = document.querySelector(".timeline");
+const timelineProgress = document.querySelector(".timeline-line-progress");
+const timelineItems = document.querySelectorAll(".timeline-item");
+
+let lastScrollY = -1;
+
+function scrollEffectsLoop() {
+  const y = window.scrollY;
+
+  if (y !== lastScrollY) {
+    lastScrollY = y;
+
+    /* Layered hero drift: copy floats up slightly, stage sinks slightly */
+    parallaxItems.forEach((el) => {
+      const speed = parseFloat(el.dataset.parallax) || 0;
+      el.style.transform = `translate3d(0, ${y * speed}px, 0)`;
+    });
+
+    /* Hero copy gently fades as the visitor leaves the fold */
+    if (heroCopy) {
+      heroCopy.style.opacity = Math.max(0, 1 - y / 650);
+    }
+
+    /* Timeline draws itself + dots light up as they pass */
+    if (timeline && timelineProgress) {
+      const rect = timeline.getBoundingClientRect();
+      const trigger = window.innerHeight * 0.72;
+      const drawn = Math.min(1, Math.max(0, (trigger - rect.top) / rect.height));
+      timelineProgress.style.transform = `scaleY(${drawn})`;
+
+      timelineItems.forEach((item) => {
+        const itemTop = item.getBoundingClientRect().top;
+        item.classList.toggle("passed", itemTop < trigger);
+      });
+    }
+  }
+
+  requestAnimationFrame(scrollEffectsLoop);
+}
+
+if (!prefersReducedMotion) {
+  scrollEffectsLoop();
+}
+
+/* ============ Reveal animation ============ */
 const revealElements = document.querySelectorAll(".reveal");
 
 if (!prefersReducedMotion) {
@@ -85,7 +237,68 @@ if (!prefersReducedMotion) {
   revealElements.forEach((element) => element.classList.add("active"));
 }
 
-/* Active nav */
+/* ============ Signal card: count-up + bar fill ============ */
+const signalCard = document.querySelector(".signal-card");
+
+function animateCount(el, target) {
+  const duration = 1300;
+  const start = performance.now();
+
+  const step = (now) => {
+    const t = Math.min(1, (now - start) / duration);
+    const eased = 1 - Math.pow(1 - t, 3);
+    el.textContent = `${Math.round(target * eased)}%`;
+
+    if (t < 1) requestAnimationFrame(step);
+  };
+
+  requestAnimationFrame(step);
+}
+
+if (signalCard) {
+  const counters = signalCard.querySelectorAll("[data-count]");
+  const bars = signalCard.querySelectorAll(".signal-bar span");
+
+  if (prefersReducedMotion) {
+    counters.forEach((el) => (el.textContent = `${el.dataset.count}%`));
+    bars.forEach((bar) => (bar.style.width = bar.dataset.w));
+  } else {
+    const signalObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          counters.forEach((el) => animateCount(el, parseInt(el.dataset.count, 10)));
+          bars.forEach((bar) => (bar.style.width = bar.dataset.w));
+
+          signalObserver.disconnect();
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    signalObserver.observe(signalCard);
+  }
+}
+
+/* ============ Spotlight overlay on glass surfaces ============ */
+const spotlightTargets = document.querySelectorAll(
+  ".glass-card, .feature-card, .timeline-card, .project-card, .skill-cluster, .signal-card, .footer-card"
+);
+
+spotlightTargets.forEach((card) => {
+  card.classList.add("spotlight");
+
+  card.addEventListener("mousemove", (event) => {
+    if (prefersReducedMotion) return;
+
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty("--mx", `${event.clientX - rect.left}px`);
+    card.style.setProperty("--my", `${event.clientY - rect.top}px`);
+  });
+});
+
+/* ============ Active nav ============ */
 const sections = document.querySelectorAll("section[id], footer[id]");
 const navLinks = document.querySelectorAll(".nav-link");
 
@@ -107,7 +320,7 @@ const navObserver = new IntersectionObserver(
 
 sections.forEach((section) => navObserver.observe(section));
 
-/* Magnetic buttons */
+/* ============ Magnetic buttons ============ */
 document.querySelectorAll(".magnetic-btn").forEach((button) => {
   button.addEventListener("mousemove", (event) => {
     if (prefersReducedMotion) return;
@@ -124,7 +337,7 @@ document.querySelectorAll(".magnetic-btn").forEach((button) => {
   });
 });
 
-/* 3D tilt cards */
+/* ============ 3D tilt cards ============ */
 document.querySelectorAll(".tilt-card").forEach((card) => {
   card.addEventListener("mousemove", (event) => {
     if (prefersReducedMotion) return;
@@ -144,7 +357,7 @@ document.querySelectorAll(".tilt-card").forEach((card) => {
   });
 });
 
-/* Constellation canvas */
+/* ============ Constellation canvas ============ */
 const canvas = document.getElementById("constellation-canvas");
 const ctx = canvas.getContext("2d");
 
