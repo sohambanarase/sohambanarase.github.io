@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Soham Banarase | Data Analyst & AI Builder</title>
-  <meta name="description" content="Portfolio of Soham Banarase — Data Analyst, AI Engineer, and builder of intelligent data products." />
+  <title>Soham Banarase | AI Engineer</title>
+  <meta name="description" content="Portfolio of Soham Banarase — AI Engineer building intelligent data products, LLM systems, and audit analytics tools." />
   <link rel="icon" type="image/png" href="favicon.png">
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -37,13 +37,36 @@
       }
     }
   </script>
+
+  <noscript>
+    <style>
+      #preloader { display: none !important; }
+      body { overflow: auto !important; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
 </head>
 
-<body class="font-inter bg-ink text-text overflow-x-hidden selection:bg-cyan selection:text-ink">
+<body class="is-loading font-inter bg-ink text-text overflow-x-hidden selection:bg-cyan selection:text-ink">
+
+  <!-- Boot preloader -->
+  <div id="preloader" aria-hidden="true">
+    <div class="preloader-inner">
+      <div class="preloader-monogram">SB</div>
+      <div class="preloader-track">
+        <span id="preloader-bar"></span>
+      </div>
+      <div class="preloader-meta">
+        <span id="preloader-status">booting interface</span>
+        <span id="preloader-percent">0%</span>
+      </div>
+    </div>
+  </div>
 
   <div id="cursor-dot"></div>
   <div id="cursor-ring"></div>
   <div id="scroll-progress"></div>
+  <div class="top-blur" aria-hidden="true"></div>
 
   <div class="fixed inset-0 -z-50 overflow-hidden">
     <canvas id="constellation-canvas"></canvas>
@@ -61,7 +84,7 @@
         </span>
         <span class="leading-tight">
           <span class="block text-sm font-bold tracking-wide text-white">Soham Banarase</span>
-          <span class="block text-xs text-soft">Data · AI · Audit Tech</span>
+          <span class="block text-xs text-soft">AI · Data · Audit Tech</span>
         </span>
       </a>
 
@@ -92,131 +115,147 @@
     <section id="home" class="relative min-h-screen px-5 pt-28 md:px-8">
       <div class="mx-auto grid min-h-[calc(100vh-7rem)] max-w-7xl items-center gap-14 py-12 lg:grid-cols-[1.02fr_0.98fr]">
 
-        <div class="reveal relative z-10">
-          <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-soft backdrop-blur-xl">
-            <span class="relative flex h-2.5 w-2.5">
-              <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green opacity-70"></span>
-              <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-green"></span>
-            </span>
-            Building intelligent data products for real-world decisions
-          </div>
-
-          <h1 class="max-w-5xl text-5xl font-black tracking-[-0.06em] text-white sm:text-6xl md:text-7xl lg:text-8xl">
-            I turn complex data into
-            <span class="gradient-text">clear, useful systems.</span>
-          </h1>
-
-          <p class="mt-7 max-w-2xl text-lg leading-8 text-soft md:text-xl">
-            I’m Soham Banarase — a Data Analyst in Internal Audit at DHL, with a background in Artificial Intelligence,
-            cloud-native software, and user-focused analytics products. I like building tools that make data easier to
-            understand, trust, and act on.
-          </p>
-
-          <div class="mt-9 flex flex-col gap-4 sm:flex-row">
-            <a href="#projects" class="magnetic-btn primary-btn">
-              View Featured Work
-              <span class="material-symbols-outlined text-[19px]">arrow_downward</span>
-            </a>
-
-            <a href="mailto:sohambanarase1999@gmail.com" class="magnetic-btn secondary-btn">
-              Let’s Connect
-              <span class="material-symbols-outlined text-[19px]">north_east</span>
-            </a>
-          </div>
-
-          <div class="mt-10 grid max-w-2xl grid-cols-3 gap-3">
-            <div class="metric-card">
-              <span class="metric-value">AI</span>
-              <span class="metric-label">Modeling</span>
+        <div id="hero-copy" data-parallax="-0.05">
+          <div class="reveal relative z-10">
+            <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-soft backdrop-blur-xl">
+              <span class="relative flex h-2.5 w-2.5">
+                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green opacity-70"></span>
+                <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-green"></span>
+              </span>
+              Building intelligent systems for real-world decisions
             </div>
-            <div class="metric-card">
-              <span class="metric-value">Dash</span>
-              <span class="metric-label">Web Apps</span>
+
+            <h1 class="max-w-5xl text-5xl font-black tracking-[-0.06em] text-white sm:text-6xl md:text-7xl lg:text-8xl">
+              I turn complex data into
+              <span class="gradient-text" id="decode-text">intelligent, useful systems.</span>
+            </h1>
+
+            <p class="mt-7 max-w-2xl text-lg leading-8 text-soft md:text-xl">
+              I’m Soham Banarase — an AI Engineer working in Internal Audit Data Analytics at DHL, with a background in
+              artificial intelligence, cloud-native software, and user-focused data products. I build tools that make
+              AI and data easier to understand, trust, and act on.
+            </p>
+
+            <div class="mt-9 flex flex-col gap-4 sm:flex-row">
+              <a href="#projects" class="magnetic-btn primary-btn">
+                View Featured Work
+                <span class="material-symbols-outlined text-[19px]">arrow_downward</span>
+              </a>
+
+              <a href="mailto:sohambanarase1999@gmail.com" class="magnetic-btn secondary-btn">
+                Let’s Connect
+                <span class="material-symbols-outlined text-[19px]">north_east</span>
+              </a>
             </div>
-            <div class="metric-card">
-              <span class="metric-value">Audit</span>
-              <span class="metric-label">Analytics</span>
+
+            <div class="mt-10 grid max-w-2xl grid-cols-3 gap-3">
+              <div class="metric-card">
+                <span class="metric-value">LLMs</span>
+                <span class="metric-label">AI Engineering</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-value">ML</span>
+                <span class="metric-label">Modeling</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-value">Dash</span>
+                <span class="metric-label">Web Apps</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="hero-stage reveal reveal-delay-2">
+        <div data-parallax="0.08">
+          <div class="hero-stage reveal reveal-delay-2">
 
-          <div class="hero-aura"></div>
-          <div class="hero-orbit hero-orbit-one"></div>
-          <div class="hero-orbit hero-orbit-two"></div>
-          <div class="hero-orbit hero-orbit-three"></div>
+            <div class="hero-aura"></div>
+            <div class="hero-orbit hero-orbit-one"></div>
+            <div class="hero-orbit hero-orbit-two"></div>
+            <div class="hero-orbit hero-orbit-three"></div>
 
-          <div class="avatar-zone tilt-card">
-            <div class="avatar-platform-glow"></div>
+            <div class="avatar-zone tilt-card">
+              <div class="avatar-platform-glow"></div>
 
-            <img src="me.png" alt="Soham Banarase" class="hero-avatar" />
+              <img src="me.png" alt="Soham Banarase" class="hero-avatar" />
 
-            <span class="hero-chip chip-python">Python</span>
-            <span class="hero-chip chip-knime">KNIME</span>
-            <span class="hero-chip chip-llm">LLMs</span>
-            <span class="hero-chip chip-dash">Dash</span>
-            <span class="hero-chip chip-cloud">Cloud</span>
-          </div>
-
-          <div class="signal-card tilt-card">
-            <p class="signal-kicker">Portfolio Signal</p>
-
-            <div class="signal-header-row">
-              <h2>Data Analyst</h2>
-              <span class="signal-badge">AI Builder</span>
+              <span class="hero-chip chip-python">Python</span>
+              <span class="hero-chip chip-knime">KNIME</span>
+              <span class="hero-chip chip-llm">LLMs</span>
+              <span class="hero-chip chip-dash">Dash</span>
+              <span class="hero-chip chip-cloud">Cloud</span>
             </div>
 
-            <p>
-              AI, analytics, automation, and audit technology — shaped into usable products.
-            </p>
+            <div class="signal-card tilt-card">
+              <p class="signal-kicker">Portfolio Signal</p>
 
-            <div class="signal-list">
-              <div>
-                <span>Insight Design</span>
-                <strong>94%</strong>
-              </div>
-              <div class="signal-bar">
-                <span style="width:94%"></span>
+              <div class="signal-header-row">
+                <h2>AI Engineer</h2>
+                <span class="signal-badge">Data × AI</span>
               </div>
 
-              <div>
-                <span>Automation Thinking</span>
-                <strong>89%</strong>
-              </div>
-              <div class="signal-bar">
-                <span style="width:89%"></span>
-              </div>
+              <p>
+                LLM systems, machine learning, automation, and audit technology — shaped into usable products.
+              </p>
 
-              <div>
-                <span>AI Product Mindset</span>
-                <strong>92%</strong>
-              </div>
-              <div class="signal-bar">
-                <span style="width:92%"></span>
+              <div class="signal-list">
+                <div>
+                  <span>AI System Design</span>
+                  <strong data-count="94">0%</strong>
+                </div>
+                <div class="signal-bar">
+                  <span data-w="94%"></span>
+                </div>
+
+                <div>
+                  <span>Automation Thinking</span>
+                  <strong data-count="89">0%</strong>
+                </div>
+                <div class="signal-bar">
+                  <span data-w="89%"></span>
+                </div>
+
+                <div>
+                  <span>Product Mindset</span>
+                  <strong data-count="92">0%</strong>
+                </div>
+                <div class="signal-bar">
+                  <span data-w="92%"></span>
+                </div>
               </div>
             </div>
-          </div>
 
+          </div>
         </div>
 
       </div>
+
+      <div class="scroll-cue" id="scroll-cue" aria-hidden="true">
+        <span class="scroll-mouse"><span></span></span>
+        <span class="scroll-cue-label">Scroll to explore</span>
+      </div>
     </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>AI Engineering ✦ LLM Systems ✦ Machine Learning ✦ Audit Analytics ✦ Dash Applications ✦ Computer Vision ✦ Cloud-Native AI ✦ Automation ✦&nbsp;</span>
+        <span>AI Engineering ✦ LLM Systems ✦ Machine Learning ✦ Audit Analytics ✦ Dash Applications ✦ Computer Vision ✦ Cloud-Native AI ✦ Automation ✦&nbsp;</span>
+      </div>
+    </div>
 
     <section id="about" class="section-shell">
       <div class="section-heading reveal">
         <p class="eyebrow">About</p>
-        <h2>Not just dashboards — decision systems.</h2>
+        <h2>Not just models — decision systems.</h2>
       </div>
 
       <div class="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
         <div class="glass-card reveal">
           <p class="text-lg leading-8 text-soft">
-            What I love about data is that it is never really only about numbers. It is about asking sharper questions,
+            What I love about AI is that it is never really only about models. It is about asking sharper questions,
             finding patterns that matter, and giving people confidence to make better decisions.
           </p>
           <p class="mt-5 text-lg leading-8 text-soft">
-            My work sits at the intersection of data analytics, artificial intelligence, cloud technologies, and internal audit.
+            My work sits at the intersection of artificial intelligence, data analytics, cloud technologies, and internal audit.
             I enjoy building practical systems: tools that are technically strong, visually clean, and easy for non-technical
             users to actually use.
           </p>
@@ -257,19 +296,19 @@
       </div>
 
       <div class="timeline">
-        <div class="timeline-line"></div>
+        <div class="timeline-line"><span class="timeline-line-progress"></span></div>
 
         <article class="timeline-item reveal">
           <div class="timeline-dot"></div>
           <div class="timeline-card tilt-card">
             <p class="date">August 2025 — Present</p>
-            <h3>Auditor Data Analytics</h3>
+            <h3>AI Engineer · Data Analytics</h3>
             <h4>DHL Corporate Audit</h4>
             <ul>
-              <li>Building interactive Dash applications for audit reporting and analytics.</li>
+              <li>Building AI/ML-powered tools — LLM workflows and classification models — for audit use cases.</li>
+              <li>Developing interactive Dash applications for audit reporting and analytics.</li>
               <li>Designing workflows that convert audit data into usable tools and insights.</li>
-              <li>Working with AI/ML models for classification and decision-support use cases.</li>
-              <li>Combining data analytics, automation, and stakeholder-friendly UX.</li>
+              <li>Combining AI engineering, automation, and stakeholder-friendly UX.</li>
             </ul>
           </div>
         </article>
@@ -404,7 +443,7 @@
     <section id="skills" class="section-shell">
       <div class="section-heading reveal">
         <p class="eyebrow">Digital Skills</p>
-        <h2>A practical mix of analytics, AI, engineering, and product thinking.</h2>
+        <h2>A practical mix of AI engineering, analytics, and product thinking.</h2>
       </div>
 
       <div class="skills-orbit reveal">
@@ -494,7 +533,7 @@
             Let’s build something clear, useful, and intelligent.
           </h2>
           <p class="mt-5 max-w-2xl text-lg leading-8 text-soft">
-            If you want to talk about data products, AI workflows, analytics dashboards, or interesting ideas,
+            If you want to talk about AI systems, data products, analytics dashboards, or interesting ideas,
             feel free to reach out.
           </p>
         </div>
@@ -518,7 +557,7 @@
       </div>
 
       <div class="mt-10 flex flex-col justify-between gap-4 text-sm text-soft md:flex-row">
-        <p>© 2026 Soham Banarase. Built with data, motion, and digital precision.</p>
+        <p>© 2026 Soham Banarase. Built with AI, motion, and digital precision.</p>
         <a href="#home" class="hover:text-cyan">Back to top ↑</a>
       </div>
     </div>
